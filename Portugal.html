@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <!-- PWA: Ana Ekrana Ekle desteği -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FalaPT">
+  <meta name="theme-color" content="#1a8a5a">
+  <meta name="application-name" content="FalaPT">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABrklEQVR4nO2XsUrDUBSGvxMcHCouBcEsjnVSSVafQNBRA50bkCyOncSxk4sIzVywbhbsA7hKM3TqA0h1lJbu18GmudXUpDaxIP0hcHPvCf93zuXcJEKcKqi4aXWh3ezGPpkoAdHv19IYZynFp0cIYvyleRyIsQxzHcJIDstXxrKyjwCWrBXACiA1wNQxDND7Q4CJeUlBSSHlemYQa0kB6gKkXEd1KtFcp4LY43HP/fWLCRIqEGaum+sQEy1QieQtKH0/KMX2JxCT7cgNIEZxFckNIMx23rXMAFTD/dFINdz8AORaG2sQYvvTUAt0QWIbynWUZdh6oGW+gDmApP0e+HYSZmAOc3SBvh1Zmc8FkJf+GUCxCEpF1/s7tFpgmjAaTa+Nr1wqEARBX0Sqp657x/Exz7e3L/1CYVgQuazVak8AjuM0RaSa2Ia/lQXmfbvtAGzt7W2cw8MIrvSYOzgz8Kf/1TLV0REA3W73rQtvcSG5VMCyLLOjlMdgwOvj49DzvNYBbM8G8NMfSGkUBEHftu0bgE1YP4SdGzj5GufAflSBjCEsMDvgzVpvNpsOwAcjIox7LiTrNwAAAABJRU5ErkJggg==">
+  <!-- iOS icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" sizes="152x152" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" sizes="120x120" href="data:image/png;base64,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">
+  <!-- Android / PWA manifest -->
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIkZhbGFQVCBcdTIwMTQgUG9ydGVraXpjZSBcdTAwZDZcdTAxMWZyZW4iLCAic2hvcnRfbmFtZSI6ICJGYWxhUFQiLCAiZGVzY3JpcHRpb24iOiAiQ0VGUiB1eXVtbHUgUG9ydGVraXpjZSBcdTAwZjZcdTAxMWZyZW5tZSB1eWd1bGFtYXNcdTAxMzEiLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzBkNWMzYSIsICJ0aGVtZV9jb2xvciI6ICIjMWE4YTVhIiwgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQUpaVWxFUVZSNG5PM2RVWWdkVngzSDhkOHNDWlhhUmF5MnFVUnB6QXFTSlFTaGl3RkxhUkxCeDZyUHpadHU5bTdxUS9aNTQxdFQ4R2w5a0pEc3E2WFBEZlpKSkxzV0RBZ2JLQ0haQktScEF5dWtWWXBoSVNndGpnLzF0ck4zWitiT21UbHpaczc4dngvb1F6SzlNMVA2LzgzL25Mbm56aVRxbTNOS3V6NkZJdWxLNWcvSE9qdU42Q1ZTMHZVNWpCM285T2c5TG5hMEo5WCsvKzlkaFNKOEFDaDY1TWlHSW1RWXdnV0F3a2RGNHpDRUNFTDdBYUR3VVZPSUlMUVhBQW9mbnJRWkJQOEJvUERSa2phQ01PTnJSNUlvZmdTUmR4ZXBMajhkZ01KSFlMNjZRZk1PUVBHalEwMjdRYk1BVVB6b2dTWWhxQjhBaWg4OVVqY0U5UUpBOGFPSDZvVEFQUUFVUDNyTU5RUnVBYUQ0RVFHWEVGUVBBTVdQaUZRTlFiVUFVUHlJVUpVUVRBOEF4WStJVFF1QjM2VVFRR1RLQThEVkh3TlExZ1dLQTBEeFkwQ0tRc0FRQ0tibEI0Q3JQd1lvcnd2UUFXRGEvZ0J3OWNlQVRYWUJPZ0JNMnhzQXJ2NHdJTnNGNkFBdzdjc0FjUFdISWVNdVFBZUFhUVFBcG4wZUFJWS9NQ2lWVWpvQVRDTUFNSTBBd0RRQ0FOTm1tQURETWpvQVRDTUFNSTBBd0RRQ0FOTUlBRXdqQURDTkFNQTBBZ0RUQ0FCTUl3QXdqUURBTkFJQTB3Z0FUQ01BTUkwQXdEUUNBTk1JQUV3akFEQ05BTUEwQWdEVENBQk1Jd0F3alFEQU5BSUEwd2dBVER2UTlRbjBXYnBTc3ZIdXhKK1B0WGttYUFzQnlDZ3QrR2tJUkpUTUI2QlIwWmZKQm9JdzlKYkpBTFJXOUVVSVEyK1ptd1FITC81SmswTWxkTXBNQitpODhMUEdJYUFiZE01RUIraFY4V2ZSRFRvMzZBN1F0UENUczFlckgrdk5wWG9Ib1J0MEtobnFHMkxxRnI5TDBSY2V1MjRZQ0VGd2d3eUFhL0VYRlgyNmRhNzZQaGJXOC9maEdnWkNFTlRnQXVCUy9IbUY3MUwwaGZ2TkNZTlRFQWhCTUlNS1FOM2k5MUgwaGNmSmhJRVE5TTlnQWxDMStFTVYvcjdqMWdrQ0lXamRJRzZEOXIzNEo0OVhlYUxOYmRMV0RhSURWQW1BUy9FWFRXZ3JuWXZEdml0MUFycEFxNkwvSHNDbCtGMnYrbnV1MmhPaEtOdFdaWi9Kd3JxU3MxZW5oK0N1Q0VHTG9oNENoU3IreVQrWGJYUGRmNlhoRUVPaDFrUWRnR25xRm44b1RpRkFLNklOd0xTcmYyeEZOZlY4NlFLdGlESUFMdmY3NjE3OUo4ZjF5Y0s2MHExenVmdHJjOUs4QnlId0x2cEpjQjVmUTU4OWQydzhGMzVXdW5XdStxUVlYa1haQWNyMGZkeGZoUGxBTjZMckFDSFg5azhMVWZhV1pqRGNGdlZxVUIzQTU5WGZaUisrdWcxZElMeEJCYUJ0eWNKNjJLczlXaGRWQUhyNzA4YlF1QnZrVFZRQktPTjc4cHQzRzdUS3RxWVlCb1VWM1NUWVZaUGlMUHRzMGJZNng0dnRqdFdRREQ0QVkyMHNiT3Z5T1BBam11WFFaZVAvc3VIUCtCdmN2TDh2KzB6ZXRtbWY4WFdjUGR2S3ZoampkbWhqZzVrREFIVVFBSmhtWWc0d09Ud3BHcTZNdDFYWlI5NW5mQndIWVprSWdGUnZZVnVvejZBN0RJRmdtcGtPVUdkaFc2alBvRHNtT2tEYkM5dkduK2xpQVIyYU1SR0FQSFVXdG9YNkRNSXhHd0JBTWhJQUh3dmJxbnltcXdWMHFDK2FwUkJTdmVVUU1SUmE0WklMbGtHMHpzeGRvRHBZMkRaOGd3OUFuYnN0ZWQvZ2pwL2NrTGZQc20zb3Q4SE1BY2JEaGRpdnhwV0dQL0FtcWdBa2ExMmZRVTh3L3ZjbXFnQ0VGT3JKY09qV29PWUE2WnRMU3M1ZUxWMkY2U0wwd2phR1ArRkYxd0hNRDRNWS9uZ1ZYUUNtOFRrWkhnOTVpcnBKMlRaWFhQMjdNYmdBU0g1Q0VISmhHOFhmblNnRDRESU04amxPYjJOaG05UCtHUDU0RjJVQXBPa2hpTzFxT3ZWOEtmNVdSQnVBS3BvTWhVSXNiR1BvMDcyb0ZzUGxhZU5GZVNIbURrN0Z6OVcvTmRGM2dDcnpnV3duNlBwTHErdzVVUHpkaTc0RFNIRzhLVjZxOFpKc2lRQzBMUG9PSUZXL0s1UXR1dENkZ09MdnAwRjBnREdYOXdlRTZnYTFDbCtpK0FNWlZBQ2sraUg0NHZPZTF4QjlzVitLdjVjR0Z3REovVTB5UlMramNBbEQwWkRLK1JZbnhSL1VJQU1nMVgrZGtvODNzOVMrcjAveEJ6ZllBRWpOM3lubUVvYkdYMlpSL0owWWRBREdldjF5UFFxL1U0TzREVHBOYjM5RFFQRjN6a1FIeU9wRk42RHdlOE5FQjhqcXZCdFEvTDFpcmdOTUN0SVJLUHJlTWgrQUxLOWhvT2lqUUFCS09BV0NnbzhTQVhDd0p4QVUvQ0NZbXdRRFdRUUFwaEVBbUVZQVlCb0JnR2tFQUtZUkFKaEdBR0FhQVlCcEJNQ0tEeitVMHJUYVA3dTcwczZPOU82NzB0cWFkT3FVbENUNSs3MTl1L3ArWGY4NTBQNzdXd2dBOW52cUtlbndZZW1sbDZRTEY2U05EVDIrYytmVDlPV1hneTZiT1NpdGZpYjl0ODFqRUFCVTh1U3hZd2Uxc1pIOGJUVDZaOWZuNGhNQlFHVkprdWg3bHk5LzR3OW56dHp0K2x4OElRQndraVJKOHZ6YTJ0ZXZTKzkzZlM0K0RPb3RrWEIzNmRLbGpZc1hMLzV4L09mWjJka241dWJtbmw1Y1hQemhhRFE2T1RNenMyLzJlK0xFaWVkK1BqLy8relBiMjNNNmZsekhwZC9la1Q3SzIvK1ZLMWQrdHJTMGRITHk3Mi9ldlBuM2hZV0YzL245cjNGSEFLQlY2ZlRyMGs4a1NidTcybjN2dmYrOC85cHJuN3l6czNQM2xUZmVtTS83ekRNdnZ2alY3ZTN0aitlbFoyOUxGK29jOXdYcDhKYjBxL3BuM2h4RElPd3pLejN4QStsYnI3ejFWbTd4UzlLaFE0ZG0veUk5Q0hoYXJTQUFxTzBqYWJmcmMyaUtBS0RZcTY4V2JucjQ4R0gweFM4eEI4Q2syVm5wNkZGcGNWRmFYaTc4MTI3Y3VQSGdwUFNkZ0dmV0NnSmczT3JxNm1tdHJqcDk1dGF0V3crM3Q3Yy8vcEgwZkV1bkZReERJRGhKMHpSZFdWbDU1NFQwM0x6MGJOZm4weFFkQUpXbGFacWVQMy8rMnNiMTYvZi9KUDJpNi9QeGdRQ2drbnYzN3YxamVYbjU3VDl2Ym41d1dmcnBHV211NjNQeWdRQmduOGVQSDMvNjZOR2pmOSsvZi8rVHJhMnRuV3ZYcm0xdmJtNSs4UDAwL2VaMTZaZW5wS05kbjZNdkI3VE8wK0VzbTF3S01mYWtkUEJyMGxlT1NrOHZTTi8rdGZUalU5SjNFNm5naHdGeG9nTmc3MUlJWTdnTEJOTUlBRXdqQUREdDh3Q3NEMnRpQTFTUlNBa2RBS1lSQUpqMlpRQVlCc0dROGZjWmZBOWd4WkVqT2lMOTVvSDByOGxOcTlMcDFvNDdHbWswR3IxOVZmcnI1S1lYcE1PdEhiZWkvVmQ5dmhVdXhEdkNoaUg3YlRaekFKaTJQd0RNQlRCZ2sydVo2QUF3TFQ4QWRBRU1VTjVLVmpvQVRDc09BRjBBQTFMME80YnlEa0FJTUFCbFArSmhDQVRUcGdlQUxvQ0lUZnNKWjdVT1FBZ1FvU3EvWDY0K0JDSUVpRWpWSCsrN3pRRUlBU0xnOHVRSzkwa3dJVUNQdVQ2MnBkNWRJRUtBSHFyenpLTDZ0MEVKQVhxazdnTzdtbjBQUUFqUUEwMmVWdGY4aXpCQ2dBNDFmVlNqbjU5RWprUEFyOGtRaUs5bmxQcGRDa0UzUUFBK0g5RHIvMGZ4ZEFPMHBJMG5VN2YzVkFpQ0FFL2FmQ1I3KzQ5RklRaW9LY1M3Q01JOUY0Z2dvS0tRTCtFSS8yQ3M3RVNaTU9EL3Vucnp6UDhBeDJwWTYxQkFSMWdBQUFBQVNVVk9SSzVDWUlJPSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBWUFBQUQwZU5UNkFBQWJva2xFUVZSNG5PM2RYNnhsVjMzWThkKzl2c0ZqRzJNUERoRXh4V1ZzMDlSVUxaQkJCRldBNjNvbUQ0a1NxWlVxSWdLYTFLQWhlUXZDRHNndGNvb3RDeVZZU0hreUZrUlV4cWdTVkVxcUtGTGpHU1BYUWpXUmtVMHN6VVFxVEdOUFF4eVR3SUQvamMzNG5qN1laM3g5NTU1NzlqbG43YjNXWHV2emtmd3ljN3p2bXJsWDgvdnV0ZmZaWnkwbzArR1k1RjRDTDVsOGZKZmZ2R2F3WmNDb3JVV3M1VjREcjdhUmV3SE5NdUNCaGt4aTkzL3pCTUx3Qk1BUURIdUFYZTBVQ0tLZ1h3S2dEd1krd01xMlI0RWdTRXNBcEdEZ0EvUk9FS1FsQUpabDZBTmt0VFVJeE1EaUJNQWlESDJBSW9tQnhRbUFlUXg5Z0ZFUkE5MElnRmtNZm9EUm04YUFFRGlYQU5qSzBBZW9rbDJCY3dtQUNJTWZvQ0YyQlY3U2RnQVkvQUROYWowRTJnd0FneCtBbDdVYUFtMEZnTUVQd0F5dGhVQWJBV0R3QTlCUkt5R3dubnNCdlRQOEFWakN2RTh3SEx0NmR3QU1mZ0JXVlBOdVFIMEJZUEFEa0ZpTklWRFhKUURESDRBZTFYUlpvSTRkQUlNZmdJSFVzaHN3L2gwQXd4K0FETWErR3pEdUFERDhBY2hvekJFd3prc0FCajhBaFJqckpZSHg3UUFZL2dBVWFHeTdBZU1LQU1NZmdJS05LUUxHY1FuQTRBZGdKTVp5U2FEOEhRRERINEFSS24wM29Pd0FNUHdCR0xHU0k2RGNBREQ4QWFoQXFSRlFaZ0FZL2dCVXBNUUlLQzhBREg4QUtsUmFCSlFWQUlZL0FCVXJLUUxLQ1FEREg0QUdsQklCWlFTQTRROUFRMHFJZ1B3QllQZ0QwS0RjRVpBM0FBeC9BQnFXTXdMeUJZRGhEd0RaSWlCUEFCaitBSEJXamdnWVBnQU1md0E0eDlBUk1Hd0FHUDRBTU5PUUVUQmNBQmorQUREWFVCRXdUQUFZL2dEUTJSQVJrUDg1QUFEQTRQb1BBR2YvQUxDd3ZuY0IrZzBBd3g4QWx0Wm5CUFFYQUlZL0FLeXNyd2h3RHdBQU5LaWZBSEQyRHdESjlMRUxrRDRBREg4QVNDNTFCS1FOQU1NZkFIcVRNZ0xjQXdBQURVb1hBTTcrQWFCM3FYWUIwZ1NBNFE4QWcwa1JBUzRCQUVDRFZnOEFaLzhBTUxoVmR3SHNBQUJBZzFZTEFHZi9BSkROS3JzQXl3ZUE0UThBMlMwYkFTNEJBRUNEbGdzQVovOEFVSXhsZGdIc0FBQkFneFlQQUdmL0FGQ2NSWGNCN0FBQVFJTVdDd0JuL3dCUXJFVjJBZXdBQUVDRHVnZUFzMzhBS0Y3WFhRQTdBQURRb0c0QjRPd2ZBRWFqeXk2QUhRQUFhSkFBQUlBR3pROEEyLzhBTURyekxnUFlBUUNBQnUwZUFNNytBV0MwZHRzRnNBTUFBQTBTQUFEUW9Oa0JZUHNmQUVadjFtVUFPd0FBMENBQkFBQU4yamtBYlA4RFFEVjJ1Z3hnQndBQUdpUUFBS0JCNXdhQTdYOEFxTTcyeXdCMkFBQ2dRUUlBQUJva0FBQ2dRYThPQU5mL0FhQmFXKzhEc0FNQUFBMFNBQURRSUFFQUFBMTZKUUJjL3dlQTZrM3ZBN0FEQUFBTkVnQUEwQ0FCQUFBTkVnQUEwS0NYQXNBTmdBRFFqRW5FeEE0QUFEUklBQUJBZ3dRQUFEUklBQUJBZ3dRQUFEUklBQUJBZ3dRQUFEUm8zVE1BQUtBOWRnQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVDQUFBYUpBQUFvRUVidVJjQXBaaDhmSW4vNmZpTVg3OW1sWlVBOUU4QTBKU2xodnd5Wm9WQmhEZ0FpaUFBcU5aZ3czNVJPOFdCS0FBR0pnQ29SckVEdjR2dFVTQUlnSjRKQUVadDFFTi9OMXVEUUF3QVBSQUFqRTYxUTM4V01RRDBRQUF3R3MwTi9wMU1ZMEFJQUNzU0FCVE4wSi9CcmdDd0lnRkFrUXorQmRnVkFKWWdBQ2lLd2I4Q0lRQXNRQUJRQklNL0lTRUFkQ0FBeU1yZzc1RVFBSFloQU1qQzRCK1FFQUIyNE5NQUdaemhuOGx1bjA4QU5NY09BSU14K0F0Z053QjRtUUNnZHdaL2dZUUFOTThsQUhwbCtCZk9aUUZvbGgwQWVqUEc0Yi8yb1Mrc2ZJekpWejZXWUNVRE9oNTJBcUJCYTNFNEpya1hRVjNHTVBoVERQcEZqU0lNaEFBMFF3Q1FWSW5EUDhldzc2cklLQkFCMEFRQlFESWxEZitTaC80c1JjV0FDSURxQ1FCV1ZzcmdIK1BRbjZXWUdCQUNVQzBCd0VweUQvK2FodjRzMldOQUJFQ1ZCQUJMeXpuOCt4cjhrNGNPcjN5TXRYZmRsV0FsNThvYUFpSUFxaU1BV0VxdTRaOXE4S2NZOUl0S0ZRYlpRa0FFUUZVRUFBdkxNZnhYSGZ3NUJ2NDhxd1pCbGhBUUFWQU5BY0JDaGg3K3F3eitFb2YrTEt2RXdPQWhJQUtnQ2dLQXpvWWMvc3NPL2pFTi9WbVdqWUZCUTBBRXdPZ0pBRG9wZWZqWE1QUm5XVFFHUkFEUWxRQmdycUdHdjhFL1c3RWhJQUpndEFRQXV5cHgrTGMwK0xkYkpBUkVBTEFiQWNCTVF3eC9nMzg1eFlXQUNJRFJFUURzcUtUaGIvRFAxalVFUkFDdzNYcnVCVkFldzM4OHV2NzlEUExJNU9QOWZ3a2dIVHNBbktQUEFERDQrMVBFYm9CZEFCZ05BY0NyMURiOCszb3VmMG81L3J3aUFIQUpnTE55RC8vSlE0ZWQrYStvNjk5aHI1Y0VYQXFBVVJBQVJFUVp3NTkwUkFBd2p3Q2dWNFovUHRrakFDamFSdTRGa0Y5ZlovL3poa3NKZzMrbk5hejB3VHlKajdlcTZYcDJXOFBhaDc3UXp6MEJ4OFA5QUZBd093Q05NL3k3Ly9yUXgwdHAzaHA2Mndsd0tRQ0tKUUFhWnZndi8vdDlINjhQSWdEWVNnQ1FWQTNEUC9mcitwUXRBb0RpQ0lCRzlYSDJYOVB3Ny9yNjFNY2JRcFlJc0FzQXhSRUFKREdHNGM4cjdBUUFBcUJCUTMzRTc5bXZaL2dYYWZEdmkxMEFLSW9BYU16UVcvK0dmOWwyKy82NEZBQjFFd0NzeFBBZnY4RWpBQ2lDQUdoSTZyUC9NUTZIUlIvS00rLzFxWTlYb3VUZlo3c0FVQVFCUUM5S1B2dnZPb1Mzdm03NklUdGIvMXZsZUtVcCtmc0Y5RU1BTkdMSXMvOHhESk5GenV5N1BPRXY5VTVCRG9OZUNyQUxBTmtKQUJZMjl1RS9OV3NvZHhuK08vMStsK09WenYwQTBBNGZCdFNBb2QvMk55YTdEZWRGbnZBM1BjNllobjEyUGl3SXNySUR3RUpxT2Z1Zlo0eFArRXZGTGdDMFFRQlVMdVhaZnl2RG53RWp3TDBBa0kwQUFJQUdDWUNLT2Z0bkZYWUJvRzRDZ0pVWS9uWHovWVY2Q1FEbWF2SEdyeGFlOExlcUZuOHVvQ2JlQmxpcElkNzZWOFBaNFU1L2hxMXY2ZXZ5WjV6MzNJQ3h4OEhXdHpuMnhsc0NZWEIyQU5oVnpXZDVxWi93MStWNHRhbjU1d05xSndBcTVPeC92dFJQK0Z2a2VHTTB5UHJkREFpRGNnbUFtV285dTB2OWhMOWxqbGVUdFE5OUlTWmYrVmp1WlFBTHNnUEF3c1o4TnB2NkNYOHRQVEZ3ekdzSHppVUFLcE5xKzcvV3MzLzZrZXpueFdVQUdJd0FZQ0hPQXR2bSt3LzFFQUFBMENBQlVCSGIvK1RrTWdDTWl3Q2dzeHEyZjFNLzRhL0ZKd2JXOEhNQUNBQWExSFVJNTNvZHdCQUVBSy9TeXZiLzBHZjJyUXovVm41K29BWUNvQko5UC8ydnhtM2ZMay80eTNtOGt2WCs4K0ErQU9pZEp3R1N6QmdIWGVvMUwzTzhFdi9lYWd3KzROWHNBSENXN1Z0UzhITUU0eUFBbU12WklEdnhjd0hqSmdBQW9FSHVBYWpBRUIvL204Sk9aNHlyWFA5T2NUeHJLdGp4aUxnbTl5S2dYbllBR01TczdlSmx0NUZUSE0rYWdKWUpBQ0ppOW8xYktRYkYwQitwMitWNDF0VHY5OWFOZ0ZBK0FVQ3Z1ZzZaSVY5blRZdS9EcWlQQUtBM3VjOVlkM3E5TmEzK2VxQU9BZ0FBR2lRQUFLQkJBbURreHZJV1FGaUt6d1NBM2dnQWVuMEhBUFh6VGdBWUp3RkFiM0ovcE81T3I3ZW0xVjhQMU1HVEFPblYycnZ1NnJTVHNIVUk3ZmJrdW1XT1owM0xyUW1vbXgwQWVyZklHV3VYSjllbE9BTzJKc01mV2ljQUdNU3NZZE5scU8zMCsxMk9aMDFwMWdUVWFTME94eVQzSWxoZWluY0JwTG9KTVBVSDF2VHhkUmJSOHBwU2ZlOG5YL25ZMG1zNHl3Y0NRUy9zQUpCZGlVK3VzeWFnZGdJQUFCb2tBQUNnUVFJQUFCb2tBQUNnUVFLQTdFcDhjcDAxQWJYekpFQUdrL3JKZGJzZHo1clNyZ21vangwQUJwSDZ5WFZkam1kTmFkWUUxRWtBMEx2VVQ2NWI1SGpXdE5xYWdIcDVFdURJbGY0a3dOUlBya3R4UEd1YWZ6eFBBb1Q2MlFHZ042bWZYSmZpZU5hMCt1dUJPZ2dBWnA2bHVWR01Mbm85K3dkNkl3QkdidTN6dVZjQVBiTDlENzBSQUFEUUlBRUFBQTBTQVBRbTlaUHJVaHpQbWxaL1BWQUhBVUN2dWc2WElWOW5UWXUvRHFpUEFDQWkrbjBud05CbnJGMk9aMDM5Zm0rOUF3REtKd0FZUkpjbjF3MTlQR3NDV3ViRGdDcXc5dmswVHdUc1crcWhNOFR1Ukk3amxiaW1MTHdGRUhwbEJ3QUFHaVFBbUd1MFo1RDB5czhGakpzQTRDdzNicEdDbnlNWUIvY0FrRXlKSHlvejd5eDFweld2Y21hN3pQRksvSHNENm1jSG9CSjlmeVpBamR1OXN3YnZzZ001OWZGSzF2dlBneHNBb1hjQ2dGZHBaZnQyNkkvVXJURUNkdExLencvVVFBRFFuSzdET05mckFJWWdBT2lzaHNzQXVjL3NhNGlBR240T0FBRlFsVlQzQWRqR1pSbkpmbTVjLzRkQkNBQUFhSkFBWUNHMmY5dm0rdy8xRUFDVmNSbUFIR3ovdy9nSUFCWTI1clBBM0IrcDI5TGZIVkEyQWNCTXRlNENkQjFrVzE4M2VlandPZit0Y3J5YTFQcHpBclVUQUJYcSs2bUFFZU1mWm91YzJYZDV3bC9xbllMU0RMSisyLzh3S0FIQXJtbyt1NXMxMUxvTS81MSt2OHZ4YWxQenp3ZlV6b2NCVldydDh4R1RqL2Y4TmQ1MTErZ2ZiTFBiY0Y3a0NYL1Q0OVE0N0ozOVE1M3NBREJYaTJkNUxUN2hiMUV0L2x4QVRRUUFLNm54akpkWCtQNUN2UVJBeFZMZURMamIyWjRoVWFkZEw0K2tQUHUzL1E5WkNBQUFhSkFBcUp4ZEFKYmg3Qi9xSndCWVNDc1IwTklUL3JZYmJQZ0RXWGtiWUFPR2VFdmdXTzEwOS83V3QvUjF1YnQvM25NRGFvcURwSno5UTFaMkFGaFlMYnNBcVovdzErVjRwWFAyRCswUUFJMUkvWGpnc1VkQTZpZjhMWEs4VWcwNi9KMzlRM1l1QWRDTGtwOFNtUG9KZjhzY3J6U2xyZ3ZvangyQWhneTVDMUNxMUUvNGErR0pnYzcrb1U0Q2dKV00vVklBcnZ0RHF3UkFZL3I0cUdBUk1GNkREMzluLzFBTUFkQ2dQaUpnMTY4bkFvbzArUGZGOEllaUNBQ1NtSGUyS0FMS011LzdZZXNmNmljQUdqWDBwWUNJTWlJZzlSUCt4dmpFd0N6RDM5ay9GRWNBa0ZSTkVaRHJkWDF5NWc5TUNZQ0c5WFV2UUEwUmtIdW5vQS9aaHIremZ5aVNBR2ljQ09qKzYwTWZMeVhESDlodUxRN0hKUGNpeUsrdkR3dGErOUFYNW4vdEhoK09VOEx3blNmM245L3doemJaQWFCWFhZYkxHSWIwR0dVZC9rRHhCQUFSMGUrekFVVEE4TElQZjJmL1VEd0J3RmtsUklBUVdFM1h2MFBESDNBUEFPZm82MzZBaUc3M0JFU004ME56Y3VzYVQ0WS9FQ0VBMkVHZkFUQWxCTklwWXZCUENRQVlEWmNBT01jUW54WFFkUmk1SkxBN3d4OVlsaDBBWmlwcEp5RENic0JXaTRTUjRRL3NSQUN3cXlFaUlFSUlkRlhjNEk4dy9HR2tCQUJ6bFJnQkVXMkZ3S0tYUWd4L1lCNEJRQ2REUlVDRUVOaXEyTUVmWWZqRHlBa0FPaXM1QXFacWlJRmxiM3cwL0lGRkNBQVdNbVFFUkN3ZkFoSGppb0ZWM3UwdytPTjhEWCtvZ2dCZ1lVTkhRTVJxSVJCUlpneXMraGJITE0veE4veWhHZ0tBcGVTSWdJalZRMkFxUnhDa2VxWkJ0Zy93TWZ5aEtnS0FwZVdLZ0loMEliQmRpakRvNitGRldUKzV6L0NINmdnQVZwSXpBaUw2QzRHU1pQL0lYc01mcWlRQVdGbnVDSmlxS1FheUQvMHB3eCtxSlFCSXBwUVFpQmhuREJRejlDTU1mbWlBQUNDcGtpSmdxdVFZS0dyb1R4biswQVFCUUhJbFJzQjJPYUtneUdHL25lRVB6UkFBOUdZTUliQmRpakFZeGFEZnp1Q0g1Z2dBZWpYR0NHaU80UTlOV3MrOUFPcTI5dm5jSzJCWGhqODB5dzRBZzdFYlVCQ0RINW9uQUJpY0VNakk0QWRlNWhJQWczTlpJQlBESDlqQ0RnQloyUTBZZ01FUDdFQUFVQVFoMEFPREg5aUZBS0FvUWlBQmd4L29RQUJRSkNHd0JJTWZXSUFBb0doQ29BT0RIMWlDQUdBMHhNQVdoajZ3SWdIQTZEUWRBZ1kva0lnQVlOU2FpQUZESCtpQkFLQWFWY1dBb1EvMFRBQlFyVkVGZ1lFUERFd0EwSlFpb3NDd0J3b2dBT0JsU2VQQWtBY0tKd0JnamwzRHdLQUhSc3FuQVFKQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd3UUFBRFJJQUFCQWd6WnlMd0NnS0ovN1hNUW5QakhzMTl6Y2pEaDlPdUw1NXlPZWZqcmk3LzgrNG9rbklrNmVqRGgyTE9MNDhZaUhIb3I0OFkvVGZ0MGNmOVlTSER3WWNlUkk3bFZrSndBQWNsdGZqN2p3d3BmKzI3czM0czF2UHVjbGs4M04yUHpPZHpiUHUrKys5ZmphMXlLKzlhME1DNjNEd1lndmZUTGkyZ01SVitkZVMwNHVBUUNNd05yNmVwejN6bmV1eHljK0VmSGdnL0g4aVJObjRxYWJJaTY1SlBmU0dDa0JBREJDNSsvYnR4Ri84QWZ4d3NtVEw1Nys5S2ZQeEo0OXVaZkV5QWdBZ0JGN3pjVVhuN2ZuTTUvWk9IWDgrT2tYcnJ2dXhkenJZVHdFQUVBRkxuM0xXL1pzSERteS9uOXZ1ZVZIc2JhV2V6bU1nQUFBcU1UNit2cmF2dC8vL2IwUGYvR0wzNStjZDk0azkzb29td0FBcU13N2I3amg4di85cFM4OS9tTEVadTYxVUM0QkFGQ2hmMzNvMEQvOWs1dHZQcFo3SFpSTEFBQlU2dC9kZXV1LytQSXYvZEszYzYrRE1na0FnRXF0cjYrdnZmdVAvL2pOZjdteGNUTDNXaWlQQUFDbzJOdmU5cmFmK3g4Zi92RHhNKzRIWUJ1UEFnWkk3T2pSbzk4N2NPREFGK2U5Ym1OalkzM3YzcjBYWEhiWlpSZnUzNy8vVGU5OTczdmY4b0VQZk9CZjdkMjc5NEtVNi9tdG0yL2VmL2VYdi96d2Y1eE05cWM4THVNbUFBQjZjSDNFVlVjaVBycnJpODZjaVRNLytNSG1qMzd3ZytmKzhhLy8rdGx2MzNQUDMvNlhtMjQ2ZXNudi9NNmVtMis5OWQrY2YvNzVTZjZOdnZycXF5Kzc1ZjN2UC9KYjk5Ly9pMnNScnp3azRNWWI0OFliYi96ek95SWVTUEYxcGc0Y09IRDF2ZmZlKzVGVmozUEJCUmQ4K3ZUcDAyZFNyR203VDBaYzI4ZHh4MFFBQUdTMEViSCtob2lMM2hCeDBUK1BlTU52UHYzME81Nyt3ejk4NGI4ZE9mSlh2L3huZi9iV243Lzg4b3RUZkoxclAvakJmZi9yL3Z2LzV0cUlmVnQvL1hNUnYvSzVpRjlKOFRYNjhGekVyWHZNcWw2NEJ3Q2dNSytOZU0yaGh4Lyt4Wi84K3ErZmZ1N1paMythNHBnSER4NTg2MWNqSGtseExPb2dBQUFLOVF2Zi92WWJmblQ3N2MrbE9OYStmZnYyUHZxbU4vMWRpbU5SQndFQVVMREwvK2lQWG5mNjFLa2sxOEgzdnYzdEYvNXR4RTlTSEl2eEV3QUFKWHZxcWRqNGk3OUk4bS8xbFZkZStmcnZSTmdGSUNJRUFFRHhOcjd4alNUL1ZsOXh4UldYbm9qNFlZcGpNWDRDQUtCMGp6Mlc1REFYWDN6eCtZOUhuRXB5TUVaUEFBQ1U3aC8rSWNsaExycm9vdGM4RmZGOGtvTXhlZ0lBb0hUcmFmNnBua3dtazJjaVhraHlNRVpQQUFDVTdyTExraHptMldlZi9lbXJuZ1JJMHdRQVFPbjI3WnYvbWc2ZWV1cXA1eStNK0pra0IyUDBCQUJBNmE2N0xzbGhIbi84OFZNWFI1eWY1R0NNbmdBQUtOa2xsMFFjUEpqa1VDZE9uUGpoRlJHWEpqa1lveWNBQUVyMnU3OGI4YnJYSlRuVUk0ODg4bmRYUnJ3K3ljRVlQUUVBVUtwM3Z6dmlVNTlLY3FnVEowNzg4UHZmLy81UDNoSHg4MGtPeU9nSkFJQVM3ZDhmOGFkL0dyRm5UNUxEM1h2dnZmL255b2pYWHg2UlpqdUIwUk1BQUNWNTdXc2pmdS8zSXI3NXpZZzN2akhaWWIvNjFhOSs1MkRFVzVNZGtOSGJ5TDBBZ0dhZGQxN0UzcjB2dmM5Ly8vNkk5NzB2NGpkK0krTFNTNU4rbWU5Kzk3di8rTUFERC96TnJSRnA3aWFrQ2dJQUlMSHJyNy8rcXVzbms2dHlyMlBxOXR0di84WlZrOG5yM3hmeGx0eHJvUndDQUtCaXg0NGRlL0x1dSs5KytLNklmKzhwZ0d5MUhuZjVnUUNvMGVibTV1UWpIL25JZi85blo4Nzg3SWNqM3BsN1BaVEZEZ0JBcFc2NTVaWWpmL25nZ3llL0dmSGJHMjc2WmhzQkFGQ2hlKzY1NTVIYmJydnR2bHNqRHI0bjRvcmM2NkU4aWhDZ01uZmZmZmZEaHc0ZCt0cHZScnpqUDBmODI5enJvVXdDQUtBU201dWJrOXR1dSsyK1E0Y09mZTJETDc3NDl2OGE4Ujl5cjRseXVRUUFVSUdUSjAvKytJWWJidmo2ZlVlT2ZPOC9SVnozbVlnRDd2cG5Od0lBWU1TZWVlYVpGKzY0NDQ0SFB2dlp6OTcvczg4OWQrSC9qTGpoUU1UVnVkZEYrUVFBd0FnOTl0aGpwKzY4ODg1djNYbm5uUS8rOU5TcHpac2kzditwaUdzdmlQaVozR3RqSEY0S2dMdGlMUTdISlBOYUFKaGhjM056OHVpamp6NXg5T2pSNzMzOTYxOS85TUVISHp4NXhXUnl5U2NqcnYzdGlQZGNHcEhtVTROb3dsckVtaDBBZ013Mk56Y25MN3p3d291blQ1OCs4L1RUVHovLzVKTlBQdlBFRTA4ODlmampqNTg2ZnZ6NGs4ZU9IWHZ5b1ljZStuOC9PWFhxK1g4WjhjYnJJNjY2SStKWDN4UHhadGY1V1pZQUFFanM2TkdqM3p0dzRNQVhGL2wvMWlQV1hoTngzcDZJamRkR25QOXpFUmU5TWVMaUt5SXUvYldJYXo0WmNlMjdJdjdKcGM3MFNVUUFBUFRnK29pcmprUjhOUGM2WUJiUEFRQ0FCcjBTQUQ0VUNBQ3FONzF2eEE0QUFEUklBQUJBZ3dRQUFEVG8xUUhnUGdBQXFOYlc1MGJZQVFDQUJna0FBR2lRQUFDQUJwMGJBTzREQUlEcWJQL2NDRHNBQU5BZ0FRQUFEZG81QUZ3R0FJQnE3UFN4MFhZQUFLQkJBZ0FBR2pRN0FGd0dBSURSMjJuN1A4SU9BQUEwU1FBQVFJTjJEd0NYQVFCZ3RHWnQvMGZZQVFDQUpzMFBBTHNBQURBNnU1Mzl2L3o3SFJ5T1NaTFZ3QWhOUHI3TGIxNHoyRElZMEkwUmYzNUh4QU9ySE9QNmlLdU9SSHcwMVpyRzVrakVkdzlHZkduVjR6d1hjZXVlaUkwVWEycU5BSUFWQ1FCZ2pPWUZRTGQ3QUZ3R0FJRFJtRGY4STl3RUNBQk42aDRBZGdFQW9IaGR6djRqN0FBQVFKTVdDd0M3QUFCUXJLNW4veEYyQUFDZ1NZc0hnRjBBQUNqT0ltZi9FWFlBQUtCSnl3V0FYUUFBS01haVovOFJkZ0FBb0VuTEI0QmRBQURJYnBtei80aFZkd0JFQUFCa3MrendqM0FKQUFDYXRIb0EyQVVBZ01HdGN2WWZZUWNBQUpxVUpnRHNBZ0RBWUZZOSs0OUl1UU1nQWdDZ2R5bUdmNFJMQUFEUXBMUUJZQmNBQUhxVDZ1dy9vbzhkQUJFQUFNbWxIUDRSZlYwQ0VBRUFrRXpxNFIvaEhnQUFhRkovQVdBWEFBQlcxc2ZaZjBUZk93QWlBQUNXMXRmd2p4amlFb0FJQUlDRjlUbjhJOXdEQUFCTkdpWUE3QUlBUUdkOW4vMUhETGtESUFJQVlLNGhobi9FMEpjQVJBQUF6RFRVOEkvSWNRK0FDQUNBY3d3NS9DTnkzUVFvQWdEZ3JLR0hmMFRPZHdHSUFBRElNdndqY3I4TlVBUUEwTEJjd3o4aWR3QkVpQUFBbXBSeitFZVVFQUFSSWdDQXB1UWUvaEdsQkVDRUNBQ2dDU1VNLzRpU0FpQkNCQUJRdFZLR2YwUnBBUkFoQWdDb1VrbkRQNkxFQUlnUUFRQlVwYlRoSDFGcUFFU0lBQUNxVU9Md2p5ZzVBQ0pFQUFDalZ1cndqeWc5QUNKRUFBQ2pWUEx3ajRqWXlMMkFUcVlSY0RnbW1WY0NBTHNxZmZCUGxiOERzSlhkQUFBS05wYmhIekcyQUlnUUFRQVVhVXpEUDJJc2x3QzJjMGtBZ0VLTWJmQlBqVzhIWUN1N0FRQmtOTmJoSHpIMkFJZ1FBUUJrTWViaEh6SFdTd0RidVNRQXdFREdQdmlueHI4RHNKWGRBQUI2Vk12d2o2aGxCMkFydXdFQUpGYlQ0SitxTHdDbWhBQUFLNnB4OEUvVmRRbGdKeTRMQUxDRW1vZC9STTA3QUZ2WkRRQ2dvOW9ILzFRYkFUQWxCQUNZb1pYQlA5VldBRXdKQVFCZTF0cmduMm96QUthRUFFQ3pXaDM4VTIwSHdKUVFBR2hHNjROL1NnQnN0ZlVkQTJJQW9CcUcvcmtFd0N4MkJRQkd6K0NmVFFETVkxY0FZRlFNL1c0RXdDTEVBRUNSRFAzRkNZQmxpUUdBckF6OTFRaUFGTFkvYmxnUUFDUm40S2NsQVBvZ0NBQldadUQzU3dBTVlhY1BKQklGQUdjWjlzUDcvNVNVN3FYdGJYN2hBQUFBQUVsRlRrU3VRbUNDIiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmciLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<title>FalaPT 🇵🇹</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --g:#1a8a5a;--gl:#e8f7f0;--gm:#2ebd7a;--gd:#0d5c3a;
+  --red:#c0392b;--gold:#f39c12;--blue:#2980b9;--purple:#8e44ad;--orange:#e67e22;
+  --bg:#f5f7fa;--card:#fff;--tx:#1a1a2e;--mt:#6b7280;--bd:#e5e7eb;
+  --r:14px;--sh:0 2px 10px rgba(0,0,0,0.07);
+}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);max-width:430px;margin:0 auto;display:flex;flex-direction:column;}
+/* SCREENS */
+#app{flex:1;overflow:hidden;position:relative;}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--bg);overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;visibility:hidden;}
+.screen.active{transform:translateX(0);visibility:visible;}
+.screen.prev{transform:translateX(-30%);visibility:hidden;}
+/* SHARED */
+.hdr{background:var(--card);padding:44px 14px 12px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.back-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--bd);background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hdr-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;flex:1;}
+.tabs{display:flex;margin:0 12px 10px;background:var(--bg);border-radius:10px;padding:3px;gap:0;flex-shrink:0;}
+.tab{flex:1;padding:7px 4px;font-size:11px;font-weight:700;text-align:center;border-radius:8px;cursor:pointer;border:none;background:none;color:var(--mt);}
+.tab.on{background:#fff;color:var(--g);box-shadow:var(--sh);}
+.body{padding:13px;flex:1;}
+/* BUTTONS */
+.btn{display:block;width:100%;padding:13px;border:none;border-radius:var(--r);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;margin-top:8px;text-align:center;}
+.btn.green{background:var(--g);color:#fff;}
+.btn.sec{background:#fff;color:var(--g);border:2px solid var(--g);}
+.btn.gold{background:var(--gold);color:#fff;}
+.btn.blue{background:#3949ab;color:#fff;}
+.btn.dis{background:var(--bd);color:var(--mt);cursor:not-allowed;}
+.btn.ok{background:var(--gm);color:#fff;}
+.btn.ng{background:var(--red);color:#fff;}
+/* FEEDBACK */
+.fb{padding:10px 12px;border-radius:var(--r);margin-top:8px;display:none;}
+.fb.ok{background:var(--gl);color:var(--gd);display:block;}
+.fb.ng{background:#fdf0ef;color:var(--red);display:block;}
+.fb b{font-size:13px;display:block;margin-bottom:2px;}
+.fb span{font-size:11px;opacity:.85;}
+/* OPTIONS */
+.opts{display:flex;flex-direction:column;gap:7px;}
+.opt-btn{background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:11px 13px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:left;display:flex;align-items:center;gap:9px;width:100%;}
+.opt-btn.on{border-color:#3949ab;background:#e8eaf6;color:#1a237e;}
+.opt-btn.ok{border-color:var(--gm);background:var(--gl);color:var(--gd);}
+.opt-btn.ng{border-color:var(--red);background:#fdf0ef;color:var(--red);}
+.opt-ltr{width:24px;height:24px;border-radius:7px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+/* HOME */
+.home-hdr{background:linear-gradient(135deg,#0d5c3a,#1a8a5a,#2ebd7a);padding:44px 18px 20px;color:#fff;}
+.logo{font-family:'Sora',sans-serif;font-size:23px;font-weight:700;}
+.logo span{color:#7fffd4;}
+.pills{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap;}
+.pill{background:rgba(255,255,255,.16);border-radius:40px;padding:5px 10px;font-size:11px;font-weight:700;}
+/* XP BAR */
+.xpbox{background:var(--card);border-radius:var(--r);padding:12px 14px;box-shadow:var(--sh);margin-bottom:11px;}
+.xprow{display:flex;justify-content:space-between;margin-bottom:6px;}
+.xplv{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--g);}
+.xpn{font-size:11px;color:var(--mt);font-weight:700;}
+.xpbar{height:8px;background:var(--bg);border-radius:8px;overflow:hidden;}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gm),var(--g));transition:width .5s;}
+.xpsub{font-size:10px;color:var(--mt);margin-top:4px;}
+/* LEVEL CARDS */
+.lvgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.lvcard{background:var(--card);border-radius:var(--r);padding:11px;box-shadow:var(--sh);cursor:pointer;border:2px solid transparent;}
+.lvcard:active{opacity:.8;}
+.lvbadge{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;}
+.lvname{font-size:10px;color:var(--mt);font-weight:600;margin-top:1px;}
+.lvbar{height:4px;background:var(--bd);border-radius:4px;margin-top:6px;overflow:hidden;}
+.lvfill{height:100%;border-radius:4px;}
+.lvcard[data-l=A1]{border-color:#2ebd7a;}.lvcard[data-l=A1] .lvbadge{color:var(--g);}.lvcard[data-l=A1] .lvfill{background:#2ebd7a;}
+.lvcard[data-l=A2]{border-color:#3498db;}.lvcard[data-l=A2] .lvbadge{color:var(--blue);}.lvcard[data-l=A2] .lvfill{background:#3498db;}
+.lvcard[data-l=B1]{border-color:#9b59b6;}.lvcard[data-l=B1] .lvbadge{color:var(--purple);}.lvcard[data-l=B1] .lvfill{background:#9b59b6;}
+.lvcard[data-l=B2]{border-color:#e67e22;}.lvcard[data-l=B2] .lvbadge{color:var(--orange);}.lvcard[data-l=B2] .lvfill{background:#e67e22;}
+/* QUICK BTNS */
+.qb{background:var(--card);border-radius:var(--r);padding:10px 12px;margin-bottom:7px;box-shadow:var(--sh);cursor:pointer;display:flex;align-items:center;gap:10px;border:1.5px solid transparent;}
+.qb:active{opacity:.8;}
+.qbi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.qbt{font-weight:700;font-size:13px;}.qbs{font-size:11px;color:var(--mt);margin-top:1px;}
+/* BOTTOM NAV */
+.bnav{background:#fff;border-top:1px solid var(--bd);display:flex;padding:5px 0 env(safe-area-inset-bottom,5px);flex-shrink:0;}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px;cursor:pointer;border:none;background:none;}
+.ni .ic{font-size:17px;}.ni .lb{font-size:9px;font-weight:700;color:var(--mt);}
+.ni.on .lb{color:var(--g);}
+/* SEC TITLE */
+.sec{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin:12px 0 7px;}
+/* INPUT */
+.inp{width:100%;padding:11px;border:2px solid var(--bd);border-radius:12px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;outline:none;background:var(--card);}
+.inp:focus{border-color:var(--blue);}
+.inp.ok{border-color:var(--gm);background:var(--gl);}
+.inp.ng{border-color:var(--red);background:#fdf0ef;}
+textarea.inp{resize:none;min-height:72px;}
+/* PROGRESS DOTS */
+.pdots{display:flex;gap:5px;justify-content:center;margin-bottom:11px;}
+.pd{width:7px;height:7px;border-radius:50%;background:var(--bd);}
+.pd.done{background:var(--g);}.pd.cur{background:var(--gm);}
+/* CARDS */
+.card{background:var(--card);border-radius:var(--r);padding:14px;box-shadow:var(--sh);margin-bottom:11px;}
+/* LISTEN */
+.play-wrap{text-align:center;margin:10px 0;}
+.play-btn{width:62px;height:62px;border-radius:50%;background:var(--g);border:none;cursor:pointer;font-size:24px;color:#fff;margin:0 auto;}
+.play-btn.playing{background:var(--gm);}
+.waves{display:flex;align-items:center;justify-content:center;gap:3px;height:28px;margin:8px 0;}
+.wv{width:4px;border-radius:3px;background:var(--bd);}
+.wv.on{background:var(--g);}
+/* WORD CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{background:var(--card);border:2px solid var(--bd);border-radius:9px;padding:5px 9px;font-size:12px;font-weight:700;cursor:pointer;}
+.chip:active{opacity:.7;}
+.chip.placed{background:var(--gl);border-color:var(--g);color:var(--gd);}
+.wt{min-height:40px;background:var(--bg);border:2px dashed var(--bd);border-radius:12px;padding:7px 10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:9px;}
+/* PATH */
+.path-hdr{background:linear-gradient(135deg,#0d5c3a,#1a8a5a);padding:50px 18px 22px;color:#fff;}
+.ph-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;}
+.ph-s{font-size:12px;opacity:.8;margin-top:2px;}
+.stage{margin-bottom:16px;}
+.stage-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.stage-badge{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.stage-line{flex:1;height:2px;background:var(--bd);border-radius:2px;}
+.pi{background:var(--card);border-radius:var(--r);padding:10px 12px;box-shadow:var(--sh);display:flex;align-items:center;gap:9px;margin-bottom:6px;border:1.5px solid transparent;cursor:pointer;}
+.pi:active{opacity:.8;}
+.pi.cur{border-color:var(--g);background:var(--gl);}
+.pi.nxt{border-color:#3498db;}
+.pi.lck{opacity:.4;cursor:not-allowed;}
+.pi-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.pi-t{font-weight:700;font-size:13px;}.pi-s{font-size:11px;color:var(--mt);margin-top:1px;}
+.pi-tag{font-size:9px;font-weight:700;padding:2px 5px;border-radius:7px;margin-top:2px;display:inline-block;}
+/* PLACEMENT HERO */
+.pt-hero{background:linear-gradient(135deg,#1a237e,#3949ab,#5c6bc0);padding:46px 20px 26px;color:#fff;text-align:center;}
+.pt-em{font-size:48px;margin-bottom:8px;}
+.pt-ti{font-family:'Sora',sans-serif;font-size:21px;font-weight:700;margin-bottom:5px;}
+.pt-su{font-size:12px;opacity:.85;line-height:1.6;margin-bottom:15px;}
+.pt-steps{display:flex;justify-content:center;gap:18px;}
+.pt-step{text-align:center;font-size:11px;opacity:.85;}
+.pt-step .si{font-size:20px;margin-bottom:2px;}
+/* RESULT */
+.result-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 16px;text-align:center;flex:1;}
+.r-em{font-size:58px;margin-bottom:10px;}
+.r-ti{font-family:'Sora',sans-serif;font-size:21px;font-weight:700;margin-bottom:4px;}
+.r-su{font-size:12px;color:var(--mt);margin-bottom:18px;}
+.xpbig{background:linear-gradient(135deg,var(--gd),var(--g));color:#fff;border-radius:var(--r);padding:12px;margin-bottom:12px;width:100%;}
+.xpbig-v{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;}
+.rstats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;width:100%;margin-bottom:16px;}
+.rsb{background:var(--card);border-radius:12px;padding:10px 5px;box-shadow:var(--sh);text-align:center;}
+.rsv{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;}
+.rsl{font-size:9px;color:var(--mt);font-weight:700;margin-top:2px;}
+/* XP FLOAT */
+#xpf{position:fixed;left:50%;top:25%;transform:translateX(-50%);font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:var(--g);pointer-events:none;z-index:9999;display:none;}
+@keyframes xpf{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-40px)}}
+/* QUIZ HDR */
+.quiz-top{background:var(--card);padding:44px 13px 10px;border-bottom:1px solid var(--bd);flex-shrink:0;}
+.qpr{display:flex;justify-content:space-between;margin-bottom:6px;}
+.qcnt{font-size:11px;font-weight:700;color:var(--mt);}
+.qbar-w{height:7px;background:var(--bd);border-radius:7px;overflow:hidden;}
+.qbar-f{height:100%;background:var(--gold);transition:width .3s;}
+/* SOURCE BOX */
+.src{background:linear-gradient(135deg,#e8f4fd,#f0fdf8);border-radius:11px;padding:11px 13px;margin-bottom:9px;}
+.src-l{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:3px;}
+.src-t{font-size:15px;font-weight:700;}
+/* SPEAK BTN */
+.spk{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;background:#fff;border:1.5px solid var(--g);border-radius:40px;font-size:11px;font-weight:700;color:var(--g);cursor:pointer;margin:6px 2px 0;}
+.spk.playing{background:var(--g);color:#fff;}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ══════════ HOME ══════════ -->
+<div class="screen active" id="sc-home">
+  <div class="home-hdr">
+    <div class="logo">Fala<span>PT</span> 🇵🇹</div>
+    <div style="font-size:11px;opacity:.75;margin-top:2px;">CEFR · Ses · Yazma · Placement Test</div>
+    <div style="font-size:20px;margin-top:9px;">🇧🇷 🇵🇹 🇦🇴 🇲🇿</div>
+    <div class="pills">
+      <div class="pill">🔥 <span id="h-streak">3 gün</span></div>
+      <div class="pill">⭐ <span id="h-xp">245 XP</span></div>
+      <div class="pill">🎯 <span id="h-lv">A1</span></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="xpbox">
+      <div class="xprow"><div class="xplv" id="xplv">A1 Seviyesi</div><div class="xpn" id="xpn">245/500 XP</div></div>
+      <div class="xpbar"><div class="xpfill" id="xpfill" style="width:49%"></div></div>
+      <div class="xpsub" id="xpsub">Sonraki seviye için 255 XP daha</div>
+    </div>
+    <div id="pt-banner" style="background:#fff9f0;border:1.5px solid var(--orange);border-radius:var(--r);padding:10px 13px;margin-bottom:11px;display:flex;align-items:center;gap:9px;cursor:pointer;">
+      <span style="font-size:20px;">🎯</span>
+      <div><div style="font-weight:700;font-size:13px;">Seviyeni Belirle!</div><div style="font-size:11px;color:var(--mt);">Placement test ile kişisel yolunu oluştur</div></div>
+      <span style="color:var(--orange);">→</span>
+    </div>
+    <div class="sec">📚 Seviyeler</div>
+    <div class="lvgrid">
+      <div class="lvcard" data-l="A1" id="lv-A1"><div class="lvbadge">A1</div><div class="lvname">Başlangıç</div><div class="lvbar"><div class="lvfill" style="width:65%"></div></div></div>
+      <div class="lvcard" data-l="A2" id="lv-A2"><div class="lvbadge">A2</div><div class="lvname">Temel</div><div class="lvbar"><div class="lvfill" style="width:20%"></div></div></div>
+      <div class="lvcard" data-l="B1" id="lv-B1"><div class="lvbadge">B1</div><div class="lvname">Orta Alt</div><div class="lvbar"><div class="lvfill" style="width:5%"></div></div></div>
+      <div class="lvcard" data-l="B2" id="lv-B2"><div class="lvbadge">B2</div><div class="lvname">Orta Üst</div><div class="lvbar"><div class="lvfill" style="width:0%"></div></div></div>
+    </div>
+    <div class="sec">⚡ Alıştırmalar</div>
+    <div class="qb" id="btn-listen" style="border-color:var(--orange);background:#fff9f0;"><div class="qbi" style="background:#fff0d0;">🔊</div><div><div class="qbt">Dinleme</div><div class="qbs">Ses tanıma & dikte · +40 XP</div></div><div>▶</div></div>
+    <div class="qb" id="btn-write" style="border-color:var(--purple);background:#f9f5ff;"><div class="qbi" style="background:#f0e8ff;">📝</div><div><div class="qbt">Yazma</div><div class="qbs">Çeviri & cümle kurma · +40 XP</div></div><div>▶</div></div>
+    <div class="qb" id="btn-pt" style="border-color:#3949ab;background:#f0f2ff;"><div class="qbi" style="background:#e8eaf6;">🎯</div><div><div class="qbt">Placement Test</div><div class="qbs">Kişisel öğrenme yolu</div></div><div>▶</div></div>
+    <div class="qb" id="btn-quiz" style="border-color:var(--gold);background:#fffbf0;"><div class="qbi" style="background:#fff3d0;">⚡</div><div><div class="qbt">Günlük Quiz</div><div class="qbs">10 soru · +50 XP</div></div><div>▶</div></div>
+  </div>
+  <div class="bnav">
+    <button class="ni on" id="nav-home"><div class="ic">🏠</div><div class="lb">Ana Sayfa</div></button>
+    <button class="ni" id="nav-listen"><div class="ic">🔊</div><div class="lb">Dinleme</div></button>
+    <button class="ni" id="nav-write"><div class="ic">📝</div><div class="lb">Yazma</div></button>
+    <button class="ni" id="nav-pt"><div class="ic">🎯</div><div class="lb">Yolum</div></button>
+  </div>
+</div>
+
+<!-- ══════════ PLACEMENT ══════════ -->
+<div class="screen" id="sc-placement">
+  <div class="pt-hero">
+    <div class="pt-em">🎯</div>
+    <div class="pt-ti">Seviye Belirleme Testi</div>
+    <div class="pt-su">12 soru ile seviyeni öğren, kişisel yolunu oluştur.</div>
+    <div class="pt-steps">
+      <div class="pt-step"><div class="si">📝</div>12 Soru</div>
+      <div class="pt-step"><div class="si">⏱️</div>~7 dk</div>
+      <div class="pt-step"><div class="si">🗺️</div>Kişisel Yol</div>
+    </div>
+  </div>
+  <div class="body" id="pt-body">
+    <p style="font-size:13px;color:var(--mt);margin-bottom:14px;line-height:1.6;">Yardım almadan cevaplayın.</p>
+    <button class="btn gold" id="pt-start-btn">Testi Başlat →</button>
+    <button class="btn sec" id="pt-home-btn">Ana Sayfaya Dön</button>
+  </div>
+</div>
+
+<!-- ══════════ PATH ══════════ -->
+<div class="screen" id="sc-path">
+  <div class="path-hdr">
+    <div class="ph-t" id="path-title">Kişisel Öğrenme Yolun</div>
+    <div class="ph-s" id="path-sub">Seviyene göre özelleştirildi</div>
+  </div>
+  <div class="body" id="path-body"></div>
+</div>
+
+<!-- ══════════ LISTENING ══════════ -->
+<div class="screen" id="sc-listening">
+  <div class="hdr">
+    <button class="back-btn" id="listen-back">‹</button>
+    <div><div class="hdr-title">Dinleme Pratiği</div><div style="font-size:11px;color:var(--mt);">Ses tanıma & dikte</div></div>
+    <span style="font-size:19px;">🔊</span>
+  </div>
+  <div class="tabs" id="listen-tabs">
+    <button class="tab on" id="lt-tanima">🎧 Ses Tanıma</button>
+    <button class="tab" id="lt-dikte">✍️ Dikte</button>
+  </div>
+  <div class="body" id="listen-body"></div>
+</div>
+
+<!-- ══════════ WRITING ══════════ -->
+<div class="screen" id="sc-writing">
+  <div class="hdr">
+    <button class="back-btn" id="write-back">‹</button>
+    <div><div class="hdr-title">Yazma Pratiği</div><div style="font-size:11px;color:var(--mt);">Çeviri & cümle kurma</div></div>
+    <span style="font-size:19px;">📝</span>
+  </div>
+  <div class="tabs" id="write-tabs">
+    <button class="tab on" id="wt-ceviri">🔄 Çeviri</button>
+    <button class="tab" id="wt-cumle">🔧 Cümle Kur</button>
+    <button class="tab" id="wt-doldur">✏️ Boşluk</button>
+  </div>
+  <div class="body" id="write-body"></div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div class="screen" id="sc-quiz">
+  <div class="quiz-top">
+    <div class="qpr"><span class="qcnt" id="q-cnt">1/10</span><span id="q-hearts">❤️❤️❤️</span></div>
+    <div class="qbar-w"><div class="qbar-f" id="q-bar" style="width:10%"></div></div>
+  </div>
+  <div class="body" id="q-body"></div>
+</div>
+
+<!-- ══════════ RESULT ══════════ -->
+<div class="screen" id="sc-result">
+  <div class="result-wrap">
+    <div class="r-em" id="r-em">🎉</div>
+    <div class="r-ti" id="r-ti">Tebrikler!</div>
+    <div class="r-su" id="r-su">Harika!</div>
+    <div class="xpbig"><div class="xpbig-v" id="r-xp">+50 XP</div><div style="font-size:11px;opacity:.85;">Kazanılan XP</div></div>
+    <div class="rstats">
+      <div class="rsb"><div class="rsv" id="r-cor" style="color:var(--g)">-</div><div class="rsl">DOĞRU</div></div>
+      <div class="rsb"><div class="rsv" id="r-str" style="color:var(--gold)">🔥3</div><div class="rsl">SERİ</div></div>
+      <div class="rsb"><div class="rsv" id="r-acc" style="color:var(--blue)">-</div><div class="rsl">BAŞARI</div></div>
+    </div>
+    <button class="btn green" id="r-home-btn">Ana Sayfaya Dön</button>
+    <button class="btn sec" id="r-again-btn">Tekrar Quiz</button>
+  </div>
+</div>
+
+<!-- ══════════ LESSON ══════════ -->
+<div class="screen" id="sc-lesson">
+  <div class="hdr">
+    <button class="back-btn" id="lesson-back">‹</button>
+    <div style="flex:1;">
+      <div class="hdr-title" id="lesson-title">Ders</div>
+      <div style="font-size:11px;color:var(--mt);" id="lesson-sub">A1</div>
+    </div>
+    <span id="lesson-xp" style="font-size:11px;font-weight:700;color:var(--gold);">+0 XP</span>
+  </div>
+  <div style="height:6px;background:var(--bd);flex-shrink:0;"><div id="lesson-prog" style="height:100%;background:var(--g);transition:width .4s;width:0%;"></div></div>
+  <div class="body" id="lesson-body"></div>
+</div>
+
+</div><!-- #app -->
+<div id="xpf"></div>
+
+<script>
+'use strict';
+// ═══════════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════════
+const XP_LVS = [{n:'A1',min:0,max:500},{n:'A2',min:500,max:1200},{n:'B1',min:1200,max:2500},{n:'B2',min:2500,max:5000}];
+
+const PT_QS = [
+  {q:'"Bom dia" ne zaman kullanılır?',opts:['Gece','Öğleden sonra','Sabah','Akşam'],ans:2,lv:'A1'},
+  {q:'"Obrigado" ne anlama gelir?',opts:['Lütfen','Merhaba','Teşekkürler','Hoşçakal'],ans:2,lv:'A1'},
+  {q:'Portekizce "su":',opts:['leite','café','água','pão'],ans:2,lv:'A1'},
+  {q:'"Azul" hangi renktir?',opts:['Yeşil','Sarı','Kırmızı','Mavi'],ans:3,lv:'A1'},
+  {q:'"Quanto custa?" ne demektir?',opts:['Ne kadar?','Nerede?','Kim?','Ne zaman?'],ans:0,lv:'A2'},
+  {q:'"falar" Pretérito Perfeito 1.tekil:',opts:['falava','falei','falarei','falo'],ans:1,lv:'A2'},
+  {q:'"Posso pagar com cartão?"',opts:['Hesabı getirir misiniz?','Para üstü?','Kartla ödeyebilir miyim?','İndirim var mı?'],ans:2,lv:'A2'},
+  {q:'"Embora" bağlacı:',opts:['Çünkü','Her ne kadar...-sa da','Eğer','Ve'],ans:1,lv:'B1'},
+  {q:'"Gostaria de" hangi kip?',opts:['Subjuntivo','Imperativo','Condicional','Futuro'],ans:2,lv:'B1'},
+  {q:'"Espero que ele venha." — hangi kip?',opts:['İndicativo','Subjuntivo','Condicional','Imperativo'],ans:1,lv:'B1'},
+  {q:'"Se eu soubesse, teria dito." yapısı:',opts:['Gerçek koşul','Gerçekleşmemiş koşul','Gelecek tahmini','Emir'],ans:1,lv:'B2'},
+  {q:'"Cujo/cuja" zamirinin işlevi:',opts:['Yer gösterir','İyelik kurar','Zaman belirtir','Soru sorar'],ans:1,lv:'B2'},
+];
+
+const LISTEN_EX = [
+  {audio:'Bom dia! Como vai você?',task:'Ne duyuyorsunuz?',
+   opts:['Boa noite! Como vai?','Bom dia! Como vai você?','Boa tarde! Tudo bem?','Olá! Qual é seu nome?'],ans:1,exp:'Sabah selamlaşması + nasılsın sorusu.',lv:'A1'},
+  {audio:'Quero um café com leite, por favor.',task:'Doğru cümleyi seçin:',
+   opts:['Quero um chá com leite.','Quero um café sem açúcar.','Quero um café com leite, por favor.','Preciso de água.'],ans:2,exp:'Sütlü kahve siparişi.',lv:'A1'},
+  {audio:'O trem parte às nove e meia da manhã.',task:'Tren saat kaçta kalkıyor?',
+   opts:['8:30','9:00','9:30','10:00'],ans:2,exp:'"Nove e meia" = 9:30.',lv:'A2'},
+  {audio:'O apartamento tem dois quartos e uma varanda.',task:'Kaç yatak odası var?',
+   opts:['1','2','3','4'],ans:1,exp:'"Dois quartos" = iki yatak odası.',lv:'A2'},
+  {audio:'Embora esteja cansado, vou continuar trabalhando.',task:'Kişi ne yapacak?',
+   opts:['Dinlenecek','Evine gidecek','Çalışmaya devam edecek','Uyuyacak'],ans:2,exp:'"vou continuar trabalhando" = çalışmaya devam edeceğim.',lv:'B1'},
+];
+
+const DIKTE_EX = [
+  {audio:'Olá, meu nome é João.',text:'Olá, meu nome é João.',hint:'Tanışma cümlesi',lv:'A1'},
+  {audio:'Eu moro em Lisboa há dois anos.',text:'Eu moro em Lisboa há dois anos.',hint:'Şehir ve süre',lv:'A2'},
+  {audio:'Gostaria de reservar uma mesa para dois.',text:'Gostaria de reservar uma mesa para dois.',hint:'Kibar istek — rezervasyon',lv:'B1'},
+  {audio:'Se eu tivesse tempo, aprenderia mais idiomas.',text:'Se eu tivesse tempo, aprenderia mais idiomas.',hint:'Gerçekleşmemiş koşul',lv:'B2'},
+];
+
+const CEVIRI_EX = [
+  {tr:'Benim adım Ana.',pt:'O meu nome é Ana.',hint:'O meu nome é...',lv:'A1'},
+  {tr:'Portekizce öğrenmek istiyorum.',pt:'Quero aprender português.',hint:'Quero + mastar',lv:'A1'},
+  {tr:'Dün arkadaşımla sinemaya gittim.',pt:'Ontem fui ao cinema com o meu amigo.',hint:'fui = gittim',lv:'A2'},
+  {tr:'Bu restoran çok pahalı ama çok lezzetli.',pt:'Este restaurante é muito caro, mas muito gostoso.',hint:'mas = ama',lv:'A2'},
+  {tr:'Mülakata hazırlanmam gerekiyor.',pt:'Preciso me preparar para a entrevista.',hint:'Preciso + mastar',lv:'B1'},
+];
+
+const CUMLE_EX = [
+  {words:['Eu','falo','português','um pouco'],correct:'Eu falo português um pouco',tr:'Ben biraz Portekizce konuşuyorum.',lv:'A1'},
+  {words:['Ela','mora','em','São Paulo'],correct:'Ela mora em São Paulo',tr:'O São Paulo\'da yaşıyor.',lv:'A1'},
+  {words:['Ontem','eu','comi','pizza','italiana'],correct:'Ontem eu comi pizza italiana',tr:'Dün İtalyan pizzası yedim.',lv:'A2'},
+  {words:['Espero','que','você','venha','à','festa'],correct:'Espero que você venha à festa',tr:'Partiye gelmeni umuyorum.',lv:'B1'},
+];
+
+const DOLDUR_EX = [
+  {sent:'Eu ___ de música brasileira.',blank:'gosto',hint:'gostar de = sevmek, 1.tekil',opts:['gosta','gostas','gosto','gostar'],lv:'A1'},
+  {sent:'Ontem ela ___ com o diretor.',blank:'falou',hint:'falar geçmiş, 3.tekil',opts:['falei','falou','falamos','falam'],lv:'A2'},
+  {sent:'É importante que você ___ todos os dias.',blank:'estude',hint:'subjuntivo — importante que + subj.',opts:['estuda','estudar','estude','estudei'],lv:'B1'},
+  {sent:'Se eu ___ dinheiro, compraria uma casa.',blank:'tivesse',hint:'subjuntivo imperfeito — ter',opts:['tinha','terei','tivesse','tenho'],lv:'B2'},
+];
+
+const QUIZ_QS = [
+  {type:'mc',q:'"Olá" ne anlama gelir?',opts:['Hoşçakal','Merhaba','Teşekkürler','Lütfen'],ans:1,exp:'"Olá" merhaba demektir.'},
+  {type:'mc',q:'"Bom dia" ne zaman kullanılır?',opts:['Akşam','Gece','Sabah','Öğleden sonra'],ans:2,exp:'Sabah selamlaşmasıdır.'},
+  {type:'fill',q:'Portekizce kırmızı: _______',ans:'vermelho',exp:'"Vermelho" kırmızı anlamına gelir.'},
+  {type:'mc',q:'"Azul" hangi renktir?',opts:['Yeşil','Sarı','Kırmızı','Mavi'],ans:3,exp:'"Azul" mavidir.'},
+  {type:'fill',q:'"Su" Portekizce: _______',ans:'água',exp:'"Água" su demektir.'},
+  {type:'mc',q:'"Ser" ile "Estar" farkı?',opts:['Fark yok','Ser kalıcı, estar geçici','Estar kalıcı','Sadece bölgesel'],ans:1,exp:'Ser kalıcı, estar geçici durumlar için.'},
+  {type:'mc',q:'"Quanto custa?" ne demektir?',opts:['Nerede?','Ne zaman?','Ne kadar?','Kaç tane?'],ans:2,exp:'Fiyat sormak için kullanılır.'},
+  {type:'fill',q:'"Ekmek" Portekizce: _______',ans:'pão',exp:'"Pão" ekmek demektir.'},
+  {type:'mc',q:'Portekizce Pazartesi:',opts:['Domingo','Sábado','Sexta-feira','Segunda-feira'],ans:3,exp:'"Segunda-feira" Pazartesidir.'},
+  {type:'mc',q:'"Gostaria de" — hangi kip?',opts:['Subjuntivo','Imperativo','Condicional','Futuro'],ans:2,exp:'Condicional — nazik istek kipi.'},
+];
+
+// ─── VOCABULARY DATA ───────────────────────────────
+const VOCAB = {
+  'a1-selam':{title:'Selamlaşmalar',icon:'👋',xp:80,words:[
+    {pt:'Olá',ph:'[o-LA]',tr:'Merhaba',ex:'Olá! Como vai você?',exTr:'Merhaba! Nasılsın?',em:'👋'},
+    {pt:'Bom dia',ph:'[bõ JI-a]',tr:'Günaydın',ex:'Bom dia, professora!',exTr:'Günaydın, öğretmenim!',em:'☀️'},
+    {pt:'Boa tarde',ph:'[BOa TAR-di]',tr:'İyi öğleden sonralar',ex:'Boa tarde, senhor!',exTr:'İyi öğleden sonralar!',em:'🌤️'},
+    {pt:'Boa noite',ph:'[BOa NOY-ti]',tr:'İyi geceler',ex:'Boa noite a todos!',exTr:'Herkese iyi geceler!',em:'🌙'},
+    {pt:'Tchau',ph:'[CHOW]',tr:'Hoşçakal (günlük)',ex:'Tchau, até amanhã!',exTr:'Hoşçakal, yarına kadar!',em:'👋'},
+    {pt:'Obrigado',ph:'[o-bri-GA-du]',tr:'Teşekkürler (erkek)',ex:'Obrigado pela ajuda!',exTr:'Yardımın için teşekkürler!',em:'🙏'},
+    {pt:'Obrigada',ph:'[o-bri-GA-da]',tr:'Teşekkürler (kadın)',ex:'Muito obrigada!',exTr:'Çok teşekkür ederim!',em:'🙏'},
+    {pt:'Por favor',ph:'[pur fa-VOR]',tr:'Lütfen',ex:'Um café, por favor.',exTr:'Bir kahve, lütfen.',em:'🫶'},
+  ]},
+  'a1-renkler':{title:'Renkler & Sayılar',icon:'🎨',xp:80,words:[
+    {pt:'vermelho',ph:'[ver-ME-lyu]',tr:'kırmızı',ex:'O carro é vermelho.',exTr:'Araba kırmızıdır.',em:'🔴'},
+    {pt:'azul',ph:'[a-ZUL]',tr:'mavi',ex:'O céu é azul.',exTr:'Gökyüzü mavidir.',em:'🔵'},
+    {pt:'verde',ph:'[VER-di]',tr:'yeşil',ex:'A árvore é verde.',exTr:'Ağaç yeşildir.',em:'🟢'},
+    {pt:'amarelo',ph:'[a-ma-RE-lu]',tr:'sarı',ex:'O sol é amarelo.',exTr:'Güneş sarıdır.',em:'🟡'},
+    {pt:'branco',ph:'[BRAN-ku]',tr:'beyaz',ex:'A neve é branca.',exTr:'Kar beyazdır.',em:'⚪'},
+    {pt:'preto',ph:'[PRE-tu]',tr:'siyah',ex:'O gato é preto.',exTr:'Kedi siyahtır.',em:'⚫'},
+    {pt:'um',ph:'[ũ]',tr:'bir (1)',ex:'Tenho um irmão.',exTr:'Bir erkek kardeşim var.',em:'1️⃣'},
+    {pt:'dois',ph:'[doys]',tr:'iki (2)',ex:'Tenho dois filhos.',exTr:'İki çocuğum var.',em:'2️⃣'},
+  ]},
+  'a1-aile':{title:'Aile & İnsanlar',icon:'👨‍👩‍👧',xp:80,words:[
+    {pt:'mãe',ph:'[mãy]',tr:'anne',ex:'A minha mãe é simpática.',exTr:'Annem sempatiktir.',em:'👩'},
+    {pt:'pai',ph:'[pay]',tr:'baba',ex:'O meu pai trabalha muito.',exTr:'Babam çok çalışıyor.',em:'👨'},
+    {pt:'filho',ph:'[FI-lyu]',tr:'oğul',ex:'Tenho um filho de cinco anos.',exTr:'Beş yaşında bir oğlum var.',em:'👦'},
+    {pt:'filha',ph:'[FI-lya]',tr:'kız',ex:'A minha filha é inteligente.',exTr:'Kızım zekidir.',em:'👧'},
+    {pt:'irmão',ph:'[ir-MÃO]',tr:'erkek kardeş',ex:'Tenho dois irmãos.',exTr:'İki erkek kardeşim var.',em:'🧑'},
+    {pt:'irmã',ph:'[ir-MÃ]',tr:'kız kardeş',ex:'A minha irmã mora em Lisboa.',exTr:'Kız kardeşim Lizbon\'da.',em:'👧'},
+    {pt:'avô',ph:'[a-VO]',tr:'büyükbaba',ex:'O avô conta histórias.',exTr:'Büyükbaba hikayeler anlatır.',em:'👴'},
+    {pt:'avó',ph:'[a-VO]',tr:'büyükanney',ex:'A avó faz bolo delicioso.',exTr:'Büyükannem lezzetli pasta yapar.',em:'👵'},
+  ]},
+  'a1-yiyecek':{title:'Yiyecek & İçecek',icon:'🍎',xp:80,words:[
+    {pt:'pão',ph:'[PÃO]',tr:'ekmek',ex:'Quero um pão, por favor.',exTr:'Bir ekmek istiyorum, lütfen.',em:'🍞'},
+    {pt:'água',ph:'[A-gwa]',tr:'su',ex:'Pode trazer água?',exTr:'Su getirebilir misiniz?',em:'💧'},
+    {pt:'café',ph:'[ka-FE]',tr:'kahve',ex:'Um café com leite, por favor.',exTr:'Sütlü bir kahve, lütfen.',em:'☕'},
+    {pt:'frango',ph:'[FRAN-gu]',tr:'tavuk',ex:'O frango está delicioso.',exTr:'Tavuk çok lezzetli.',em:'🍗'},
+    {pt:'arroz',ph:'[a-RROZ]',tr:'pirinç',ex:'Arroz e feijão é típico.',exTr:'Pirinç ve fasulye tipiktir.',em:'🍚'},
+    {pt:'fruta',ph:'[FRU-ta]',tr:'meyve',ex:'Gosto de comer fruta.',exTr:'Meyve yemeyi seviyorum.',em:'🍎'},
+    {pt:'leite',ph:'[LAY-ti]',tr:'süt',ex:'Um copo de leite, por favor.',exTr:'Bir bardak süt, lütfen.',em:'🥛'},
+    {pt:'vinho',ph:'[VI-nyu]',tr:'şarap',ex:'Um copo de vinho, por favor.',exTr:'Bir bardak şarap, lütfen.',em:'🍷'},
+  ]},
+  'a2-alisveris':{title:'Alışveriş',icon:'🛒',xp:100,words:[
+    {pt:'quanto custa',ph:'[KWAN-tu KUS-ta]',tr:'ne kadar?',ex:'Quanto custa este vestido?',exTr:'Bu elbise ne kadar?',em:'💰'},
+    {pt:'barato',ph:'[ba-RA-tu]',tr:'ucuz',ex:'Este mercado é muito barato.',exTr:'Bu pazar çok ucuz.',em:'🤑'},
+    {pt:'caro',ph:'[KA-ru]',tr:'pahalı',ex:'O hotel é muito caro.',exTr:'Otel çok pahalı.',em:'💸'},
+    {pt:'tamanho',ph:'[ta-MA-nyu]',tr:'beden/boyut',ex:'Qual é o seu tamanho?',exTr:'Bedeniniz kaç?',em:'📏'},
+    {pt:'desconto',ph:'[des-KON-tu]',tr:'indirim',ex:'Tem desconto para estudantes?',exTr:'Öğrenciye indirim var mı?',em:'🏷️'},
+    {pt:'pagar',ph:'[pa-GAR]',tr:'ödemek',ex:'Posso pagar com cartão?',exTr:'Kartla ödeyebilir miyim?',em:'💳'},
+    {pt:'recibo',ph:'[re-SI-bu]',tr:'fiş/makbuz',ex:'Pode me dar o recibo?',exTr:'Makbuzu verebilir misiniz?',em:'🧾'},
+    {pt:'troco',ph:'[TRO-ku]',tr:'para üstü',ex:'Pode me dar o troco?',exTr:'Para üstünü verir misiniz?',em:'🪙'},
+  ]},
+  'b1-is':{title:'İş Hayatı',icon:'💼',xp:150,words:[
+    {pt:'entrevista',ph:'[en-tre-VIS-ta]',tr:'mülakat',ex:'Tenho uma entrevista amanhã.',exTr:'Yarın mülakatım var.',em:'💼'},
+    {pt:'currículo',ph:'[ku-RRI-ku-lu]',tr:'CV/özgeçmiş',ex:'Enviei meu currículo ontem.',exTr:'CV\'mi dün gönderdim.',em:'📄'},
+    {pt:'salário',ph:'[sa-LA-riu]',tr:'maaş',ex:'Qual é o salário proposto?',exTr:'Önerilen maaş nedir?',em:'💵'},
+    {pt:'contrato',ph:'[kon-TRA-tu]',tr:'sözleşme',ex:'Preciso assinar o contrato.',exTr:'Sözleşmeyi imzalamalıyım.',em:'📝'},
+    {pt:'reunião',ph:'[re-u-ni-ÃO]',tr:'toplantı',ex:'A reunião é às 10h.',exTr:'Toplantı saat 10\'da.',em:'🤝'},
+    {pt:'prazo',ph:'[PRA-zu]',tr:'son tarih',ex:'Qual é o prazo de entrega?',exTr:'Teslim tarihi ne zaman?',em:'📅'},
+    {pt:'gerente',ph:'[zhe-REN-ti]',tr:'müdür',ex:'Fale com o gerente.',exTr:'Müdürle konuşun.',em:'👔'},
+    {pt:'projeto',ph:'[pro-ZHE-tu]',tr:'proje',ex:'Estou trabalhando no projeto.',exTr:'Proje üzerinde çalışıyorum.',em:'📊'},
+  ]},
+  'b2-akademik':{title:'Akademik Yazı',icon:'📝',xp:200,words:[
+    {pt:'argumento',ph:'[ar-gu-MEN-tu]',tr:'argüman/gerekçe',ex:'O argumento principal é forte.',exTr:'Ana argüman güçlüdür.',em:'💡'},
+    {pt:'hipótese',ph:'[i-PO-te-zi]',tr:'hipotez',ex:'A hipótese foi confirmada.',exTr:'Hipotez doğrulandı.',em:'🔬'},
+    {pt:'evidência',ph:'[e-vi-DEN-sia]',tr:'kanıt/delil',ex:'Não há evidência suficiente.',exTr:'Yeterli kanıt yok.',em:'📋'},
+    {pt:'análise',ph:'[a-NA-li-zi]',tr:'analiz',ex:'A análise mostrou resultados positivos.',exTr:'Analiz olumlu sonuçlar gösterdi.',em:'📈'},
+    {pt:'conclusão',ph:'[kon-klu-ZÃO]',tr:'sonuç',ex:'Em conclusão, o projeto foi bem-sucedido.',exTr:'Sonuç olarak, proje başarılı oldu.',em:'✅'},
+    {pt:'referência',ph:'[re-fe-REN-sia]',tr:'referans/kaynak',ex:'Cite a referência bibliográfica.',exTr:'Kaynakçayı alıntılayın.',em:'📚'},
+    {pt:'metodologia',ph:'[me-to-do-lo-JI-a]',tr:'metodoloji',ex:'A metodologia adotada é qualitativa.',exTr:'Benimsenen metodoloji nitelikseldir.',em:'🔭'},
+    {pt:'síntese',ph:'[SIN-te-zi]',tr:'sentez/özet',ex:'Faça uma síntese do texto.',exTr:'Metnin özetini yapın.',em:'📄'},
+  ]},
+};
+
+const PATH_DATA = {
+  A1:{t:'A1 Öğrenme Yolu',s:'Kişisel planın · Başlangıç',stages:[
+    {lv:'A1',label:'Temel Kelimeler',items:[
+      {ic:'👋',t:'Selamlaşmalar',s:'8 kelime · ses+quiz',st:'cur',tag:'Buradan Başla',tc:'#1a8a5a',lid:'a1-selam'},
+      {ic:'🎨',t:'Renkler & Sayılar',s:'16 kelime',st:'nxt',tag:'Sonraki',tc:'#2980b9',lid:'a1-renkler'},
+      {ic:'👨‍👩‍👧',t:'Aile & İnsanlar',s:'8 kelime',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:'a1-aile'},
+    ]},
+    {lv:'A1',label:'İlk İletişim',items:[
+      {ic:'🍎',t:'Yiyecek & İçecek',s:'8 kelime',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:'a1-yiyecek'},
+      {ic:'🔊',t:'Dinleme: A1',s:'5 egzersiz',st:'lck',tag:'Dinleme',tc:'#6b7280',lid:'listen'},
+    ]},
+  ]},
+  A2:{t:'A2 Öğrenme Yolu',s:'Kişisel planın · Temel',stages:[
+    {lv:'A2',label:'Günlük Konuşmalar',items:[
+      {ic:'🛒',t:'Alışveriş',s:'8 kelime',st:'cur',tag:'Buradan Başla',tc:'#1a8a5a',lid:'a2-alisveris'},
+      {ic:'🍽️',t:'Restoranda',s:'Yakında',st:'nxt',tag:'Sonraki',tc:'#2980b9',lid:'a2-alisveris'},
+      {ic:'🏠',t:'Ev & Mekan',s:'Yakında',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:''},
+    ]},
+    {lv:'A2',label:'Gramer',items:[
+      {ic:'📅',t:'Pretérito Perfeito',s:'Geçmiş zaman',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:''},
+      {ic:'🔮',t:'Yakın Gelecek',s:'ir + infinitivo',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:''},
+    ]},
+  ]},
+  B1:{t:'B1 Öğrenme Yolu',s:'Kişisel planın · Orta alt',stages:[
+    {lv:'B1',label:'İş & Kariyer',items:[
+      {ic:'💼',t:'İş Hayatı',s:'8 kelime',st:'cur',tag:'Buradan Başla',tc:'#1a8a5a',lid:'b1-is'},
+      {ic:'🧠',t:'Subjuntivo',s:'Dilek kipi',st:'nxt',tag:'Sonraki',tc:'#2980b9',lid:'b1-is'},
+    ]},
+    {lv:'B1',label:'İleri Gramer',items:[
+      {ic:'⚖️',t:'Condicional',s:'Koşullu kip',st:'lck',tag:'Kilitli',tc:'#6b7280',lid:''},
+    ]},
+  ]},
+  B2:{t:'B2 Öğrenme Yolu',s:'Kişisel planın · Orta üst',stages:[
+    {lv:'B2',label:'İleri Dil',items:[
+      {ic:'📝',t:'Akademik Yazı',s:'8 kelime',st:'cur',tag:'Buradan Başla',tc:'#1a8a5a',lid:'b2-akademik'},
+      {ic:'🔬',t:'Bilim Dili',s:'Akademik kelimeler',st:'nxt',tag:'Sonraki',tc:'#2980b9',lid:'b2-akademik'},
+    ]},
+  ]},
+};
+
+// ═══════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════
+let totalXP = 245, streak = 3;
+let ptQs = [], ptIdx = 0, ptScores = {A1:0,A2:0,B1:0,B2:0}, ptAns = -1, ptLv = '', ptDone = false;
+let listenIdx = 0, listenDone_flag = false;
+let dikteIdx = 0;
+let writeIdx = 0, curCumle = null, placedW = [], remainW = [];
+let dFillSel = -1;
+let qQs = [], qIdx = 0, qCorrect = 0, qLives = 3, qAns = -1, qExp = '';
+let waveTimer = null;
+let historyStack = ['home'];
+
+// ═══════════════════════════════════════════════════
+//  XP
+// ═══════════════════════════════════════════════════
+function getLv(){ return XP_LVS.find(l=>totalXP>=l.min&&totalXP<l.max)||XP_LVS[3]; }
+
+function updateXP(){
+  const lv = getLv();
+  const pct = Math.round((totalXP-lv.min)/(lv.max-lv.min)*100);
+  document.getElementById('xpfill').style.width = pct+'%';
+  document.getElementById('xplv').textContent = lv.n+' Seviyesi';
+  document.getElementById('xpn').textContent = totalXP+'/'+lv.max+' XP';
+  document.getElementById('xpsub').textContent = 'Sonraki seviye için '+(lv.max-totalXP)+' XP daha';
+  document.getElementById('h-xp').textContent = totalXP+' XP';
+  document.getElementById('h-lv').textContent = lv.n;
+}
+
+function addXP(n){
+  totalXP += n; updateXP();
+  const el = document.getElementById('xpf');
+  el.textContent = '+'+n+' XP';
+  el.style.cssText = 'position:fixed;left:50%;top:22%;transform:translateX(-50%);display:block;font-family:Sora,sans-serif;font-size:18px;font-weight:700;color:#1a8a5a;pointer-events:none;z-index:9999;animation:xpf 1.3s ease forwards;';
+  setTimeout(()=>{ el.style.display='none'; }, 1400);
+}
+
+// ═══════════════════════════════════════════════════
+//  SPEECH
+// ═══════════════════════════════════════════════════
+function speak(text, cb){
+  if(!window.speechSynthesis){ if(cb) cb(); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'pt-BR'; u.rate = 0.82;
+  const v = speechSynthesis.getVoices().find(x=>x.lang.startsWith('pt'))||null;
+  if(v) u.voice = v;
+  if(cb) u.onend = cb;
+  speechSynthesis.speak(u);
+}
+
+function spkClick(btn, text){
+  btn.classList.add('playing');
+  speak(text, ()=>btn.classList.remove('playing'));
+}
+
+// ═══════════════════════════════════════════════════
+//  NAVIGATION  — single source of truth
+// ═══════════════════════════════════════════════════
+function goTo(id){
+  const prev = document.querySelector('.screen.active');
+  if(prev){ prev.classList.remove('active'); prev.classList.add('prev'); setTimeout(()=>prev.classList.remove('prev'),300); }
+  const next = document.getElementById('sc-'+id);
+  if(next){ next.classList.add('active'); }
+  // update nav highlight
+  document.querySelectorAll('.ni').forEach(b=>b.classList.remove('on'));
+  const navMap = {home:'nav-home',listening:'nav-listen',writing:'nav-write',placement:'nav-pt'};
+  const n = document.getElementById(navMap[id]);
+  if(n) n.classList.add('on');
+  historyStack.push(id);
+}
+
+function goBack(){
+  historyStack.pop();
+  const prev = historyStack[historyStack.length-1]||'home';
+  const cur = document.querySelector('.screen.active');
+  if(cur) cur.classList.remove('active');
+  const target = document.getElementById('sc-'+prev);
+  if(target) target.classList.add('active');
+}
+
+// ═══════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════
+function makeDots(arr, cur){
+  return arr.map((_,i)=>`<div class="pd${i<cur?' done':i===cur?' cur':''}"></div>`).join('');
+}
+
+function showFeedback(id, ok, title, detail){
+  const el = document.getElementById(id);
+  el.className = 'fb '+(ok?'ok':'ng');
+  el.innerHTML = `<b>${ok?'✅ Doğru!':'❌ Yanlış!'}</b><span>${detail}</span>`;
+}
+
+function makePTChk(id){ return `<button class="btn dis" id="${id}" style="margin-top:14px;">Kontrol Et</button>`; }
+function makeBtn(id,cls,txt){ return `<button class="btn ${cls}" id="${id}">${txt}</button>`; }
+
+const L = ['A','B','C','D'];
+
+// ═══════════════════════════════════════════════════
+//  PLACEMENT TEST
+// ═══════════════════════════════════════════════════
+function startPlacement(){
+  ptQs = [...PT_QS].sort(()=>Math.random()-.5).slice(0,12);
+  ptIdx = 0; ptScores = {A1:0,A2:0,B1:0,B2:0};
+  renderPTQ();
+  goTo('placement');
+}
+
+function renderPTQ(){
+  if(ptIdx >= ptQs.length){ showPTResult(); return; }
+  const q = ptQs[ptIdx];
+  ptAns = q.ans; ptLv = q.lv;
+  const pct = Math.round(ptIdx/ptQs.length*100);
+  const body = document.getElementById('pt-body');
+  body.innerHTML = `
+    <div style="margin-bottom:13px;">
+      <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--mt);margin-bottom:5px;">
+        <span>Soru ${ptIdx+1} / ${ptQs.length}</span><span>Seviye: <strong>${q.lv}</strong></span>
+      </div>
+      <div style="height:6px;background:var(--bd);border-radius:6px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#5c6bc0,#3949ab);transition:width .4s;"></div>
+      </div>
+    </div>
+    <div style="font-family:Sora,sans-serif;font-size:17px;font-weight:700;margin-bottom:15px;line-height:1.35;">${q.q}</div>
+    <div class="opts" id="pt-opts"></div>
+    <div class="fb" id="pt-fb"></div>
+    ${makePTChk('pt-chk')}
+    <button class="btn sec" id="pt-skip" style="margin-top:6px;">Bu soruyu atla →</button>`;
+  q.opts.forEach((o,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn'; btn.id = 'pto'+i;
+    btn.innerHTML = `<span class="opt-ltr">${L[i]}</span>${o}`;
+    btn.addEventListener('click', ()=>ptSelect(i));
+    document.getElementById('pt-opts').appendChild(btn);
+  });
+  document.getElementById('pt-chk').addEventListener('click', ptConfirm);
+  document.getElementById('pt-skip').addEventListener('click', ()=>{ ptIdx++; renderPTQ(); });
+}
+
+let ptSel = -1, ptConfirmed = false;
+function ptSelect(i){
+  if(ptConfirmed) return;
+  ptSel = i;
+  document.querySelectorAll('#pt-opts .opt-btn').forEach((b,j)=>{ b.className='opt-btn'+(j===i?' on':''); });
+  document.getElementById('pt-chk').className = 'btn blue';
+}
+
+function ptConfirm(){
+  if(ptConfirmed || ptSel < 0) return;
+  ptConfirmed = true;
+  const ok = ptSel === ptAns;
+  if(ok) ptScores[ptLv] = (ptScores[ptLv]||0)+1;
+  document.querySelectorAll('#pt-opts .opt-btn').forEach((b,i)=>{
+    if(i===ptAns) b.className='opt-btn ok';
+    else if(i===ptSel && !ok) b.className='opt-btn ng';
+  });
+  const btn = document.getElementById('pt-chk');
+  btn.className = 'btn '+(ok?'ok':'ng'); btn.textContent = 'Devam →';
+  btn.onclick = ()=>{ ptConfirmed=false; ptSel=-1; ptIdx++; renderPTQ(); };
+}
+
+function showPTResult(){
+  const s = ptScores;
+  let det = 'A1';
+  if((s.B2||0)>=2) det='B2';
+  else if((s.B1||0)>=2) det='B1';
+  else if((s.A2||0)>=2) det='A2';
+  document.getElementById('h-lv').textContent = det;
+  const el = document.getElementById('pt-banner');
+  if(el) el.style.display='none';
+  const clrs={A1:'#2ebd7a',A2:'#3498db',B1:'#9b59b6',B2:'#e67e22'};
+  const ems={A1:'🌱',A2:'🌿',B1:'🌳',B2:'🏆'};
+  const desc={A1:'Başlangıç seviyesindesin. Temel kelimeler ve selamlaşmalarla başlayalım!',A2:'Temel seviyedesin! Günlük konuşmalar üzerine çalışalım.',B1:'Orta alt seviyedesin. Subjuntivo ve akıcı konuşmaya odaklanalım!',B2:'İleri seviyedesin! Akademik dil üzerine çalışalım.'};
+  const bars = ['A1','A2','B1','B2'].map(lv=>{
+    const cnt = ptQs.filter(q=>q.lv===lv).length || 1;
+    const pct = Math.round((s[lv]||0)/cnt*100);
+    return `<div style="display:flex;align-items:center;gap:9px;background:#fff;border-radius:11px;padding:9px 13px;margin-bottom:6px;box-shadow:var(--sh);">
+      <div style="flex:1;font-size:13px;font-weight:600;">${lv}</div>
+      <div style="flex:2;height:6px;background:var(--bd);border-radius:6px;overflow:hidden;"><div style="height:100%;width:${pct}%;background:${clrs[lv]};"></div></div>
+      <div style="font-size:12px;font-weight:700;color:var(--mt);min-width:30px;text-align:right;">%${pct}</div>
+    </div>`;
+  }).join('');
+  const body = document.getElementById('pt-body');
+  body.innerHTML = `
+    <div style="text-align:center;padding:8px 0;">
+      <div style="font-size:52px;margin-bottom:8px;">${ems[det]}</div>
+      <div style="font-family:Sora,sans-serif;font-size:22px;font-weight:700;margin-bottom:4px;">Seviyeniz: ${det}</div>
+      <div style="font-size:12px;color:var(--mt);margin-bottom:16px;line-height:1.5;">${desc[det]}</div>
+      ${bars}
+    </div>`;
+  const b1 = document.createElement('button'); b1.className='btn gold'; b1.textContent='Kişisel Yolumu Gör 🗺️';
+  b1.addEventListener('click', ()=>showPath(det)); body.appendChild(b1);
+  const b2 = document.createElement('button'); b2.className='btn sec'; b2.textContent='Ana Sayfaya Dön';
+  b2.addEventListener('click', ()=>goTo('home')); body.appendChild(b2);
+  addXP(20);
+}
+
+// ═══════════════════════════════════════════════════
+//  LEARNING PATH
+// ═══════════════════════════════════════════════════
+function showPath(lv){
+  const d = PATH_DATA[lv]||PATH_DATA.A1;
+  document.getElementById('path-title').textContent = d.t;
+  document.getElementById('path-sub').textContent = d.s;
+  const body = document.getElementById('path-body');
+  body.innerHTML = '';
+  const lvC={A1:'#e8f7f0',A2:'#e8f0fc',B1:'#f5effe',B2:'#fff7ed'};
+  const lvT={A1:'#0d5c3a',A2:'#1a5598',B1:'#6b21a8',B2:'#9a3412'};
+  d.stages.forEach(st=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'stage';
+    wrap.innerHTML = `<div class="stage-hdr">
+      <div class="stage-badge" style="background:${lvC[st.lv]};color:${lvT[st.lv]};">${st.lv} · ${st.label}</div>
+      <div class="stage-line"></div></div>`;
+    st.items.forEach(it=>{
+      const el = document.createElement('div');
+      const cls = it.st==='cur'?'pi cur':it.st==='nxt'?'pi nxt':'pi lck';
+      el.className = cls;
+      const icBg = it.st==='cur'?'#e8f7f0':it.st==='nxt'?'#e8f0fc':'#f3f4f6';
+      const ico = it.st==='lck'?'🔒':it.st==='cur'?'▶':'→';
+      el.innerHTML = `
+        <div class="pi-ic" style="background:${icBg};">${it.ic}</div>
+        <div class="pi-info">
+          <div class="pi-t">${it.t}</div>
+          <div class="pi-s">${it.s}</div>
+          <div class="pi-tag" style="background:${it.tc}22;color:${it.tc};">${it.tag}</div>
+        </div>
+        <span>${ico}</span>`;
+      if(it.st !== 'lck'){
+        el.addEventListener('click', ()=>{
+          if(it.lid === 'listen') openListening();
+          else if(it.lid && VOCAB[it.lid]) openLesson(it.lid);
+          else goTo('home');
+        });
+      }
+      wrap.appendChild(el);
+    });
+    body.appendChild(wrap);
+  });
+  const b1 = document.createElement('button'); b1.className='btn green'; b1.textContent='Ana Sayfaya Dön';
+  b1.addEventListener('click', ()=>goTo('home')); body.appendChild(b1);
+  const b2 = document.createElement('button'); b2.className='btn sec'; b2.textContent='Testi Yeniden Al';
+  b2.addEventListener('click', ()=>startPlacement()); body.appendChild(b2);
+  goTo('path');
+}
+
+// ═══════════════════════════════════════════════════
+//  LESSON (VOCABULARY)
+// ═══════════════════════════════════════════════════
+let lessonId = '', lessonIdx = 0, lessonEarnedXP = 0;
+
+function openLesson(lid){
+  const data = VOCAB[lid];
+  if(!data){ return; }
+  lessonId = lid; lessonIdx = 0; lessonEarnedXP = 0;
+  document.getElementById('lesson-title').textContent = data.title;
+  document.getElementById('lesson-sub').textContent = data.icon+' · '+Object.keys(VOCAB).indexOf(lid) < 4 ? 'A1' : lid.startsWith('a2')?'A2':lid.startsWith('b1')?'B1':'B2';
+  document.getElementById('lesson-xp').textContent = '+0 XP';
+  document.getElementById('lesson-prog').style.width = '0%';
+  renderWord();
+  goTo('lesson');
+}
+
+function renderWord(){
+  const data = VOCAB[lessonId];
+  if(!data) return;
+  const words = data.words;
+  if(lessonIdx >= words.length){ lessonFinish(); return; }
+  const w = words[lessonIdx];
+  const pct = Math.round(lessonIdx / words.length * 100);
+  document.getElementById('lesson-prog').style.width = pct+'%';
+  const body = document.getElementById('lesson-body');
+  body.innerHTML = `
+    <div style="background:var(--card);border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);text-align:center;margin-bottom:12px;">
+      <div style="font-size:42px;margin-bottom:6px;">${w.em}</div>
+      <div style="font-family:Sora,sans-serif;font-size:28px;font-weight:700;color:var(--g);">${w.pt}</div>
+      <div style="font-size:12px;color:var(--mt);margin-top:3px;font-style:italic;">${w.ph}</div>
+      <button class="spk" id="w-spk" style="margin:10px auto 0;">🔊 Telaffuz</button>
+      <div style="font-size:16px;font-weight:700;margin-top:10px;">${w.tr}</div>
+      <div style="background:var(--gl);border-radius:10px;padding:9px 12px;margin-top:12px;text-align:left;">
+        <div style="font-weight:700;color:var(--gd);font-size:13px;">${w.ex}</div>
+        <div style="font-size:11px;color:var(--mt);margin-top:2px;">${w.exTr}</div>
+      </div>
+      <button class="spk" id="ex-spk" style="margin:8px auto 0;border-color:var(--blue);color:var(--blue);">🔊 Cümleyi Duy</button>
+    </div>
+    <div style="font-size:11px;color:var(--mt);text-align:center;margin-bottom:10px;">${lessonIdx+1} / ${words.length} kelime</div>
+    <button class="btn green" id="next-word-btn">Anladım, devam et →</button>`;
+  document.getElementById('w-spk').addEventListener('click', function(){ spkClick(this, w.pt); });
+  document.getElementById('ex-spk').addEventListener('click', function(){ spkClick(this, w.ex); });
+  document.getElementById('next-word-btn').addEventListener('click', ()=>{
+    lessonIdx++;
+    lessonEarnedXP += 10;
+    document.getElementById('lesson-xp').textContent = '+'+lessonEarnedXP+' XP';
+    renderWord();
+  });
+}
+
+function lessonFinish(){
+  document.getElementById('lesson-prog').style.width = '100%';
+  addXP(lessonEarnedXP);
+  const body = document.getElementById('lesson-body');
+  body.innerHTML = `
+    <div style="text-align:center;padding:26px 0;">
+      <div style="font-size:52px;margin-bottom:10px;">🎓</div>
+      <div style="font-family:Sora,sans-serif;font-size:20px;font-weight:700;margin-bottom:5px;">Ders Tamamlandı!</div>
+      <div style="font-size:12px;color:var(--mt);margin-bottom:18px;">+${lessonEarnedXP} XP kazandın!</div>
+      <button class="btn green" id="lesson-quiz-btn">⚡ Quiz Yap</button>
+      <button class="btn sec" id="lesson-home-btn" style="margin-top:8px;">Ana Sayfaya Dön</button>
+    </div>`;
+  document.getElementById('lesson-quiz-btn').addEventListener('click', ()=>startQuiz());
+  document.getElementById('lesson-home-btn').addEventListener('click', ()=>goTo('home'));
+}
+
+
+function openListening(){
+  listenIdx = 0; listenDone_flag = false;
+  document.getElementById('lt-tanima').classList.add('on');
+  document.getElementById('lt-dikte').classList.remove('on');
+  renderListenQ();
+  goTo('listening');
+}
+
+function renderListenQ(){
+  if(listenIdx >= LISTEN_EX.length){ renderListenDone(); return; }
+  const ex = LISTEN_EX[listenIdx];
+  const dots = makeDots(LISTEN_EX, listenIdx);
+  const waves = Array(8).fill(0).map((_,i)=>`<div class="wv" id="wv${i}" style="height:${5+i%3*5}px;"></div>`).join('');
+  const body = document.getElementById('listen-body');
+  body.innerHTML = `
+    <div class="pdots">${dots}</div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:7px;">Ses Tanıma · ${ex.lv}</div>
+      <div style="font-family:Sora,sans-serif;font-size:15px;font-weight:700;margin-bottom:4px;">${ex.task}</div>
+      <div style="font-size:11px;color:var(--mt);margin-bottom:12px;">Sesi dinleyin, doğru cevabı seçin</div>
+      <div class="play-wrap"><button class="play-btn" id="play-btn">▶</button></div>
+      <div class="waves">${waves}</div>
+      <div id="listen-opts"></div>
+    </div>
+    <div class="fb" id="l-fb"></div>
+    <button class="btn dis" id="l-chk">Kontrol Et</button>`;
+  document.getElementById('play-btn').addEventListener('click', ()=>playAudio(ex.audio));
+  document.getElementById('l-chk').addEventListener('click', ()=>confirmListen(ex));
+  let lSel = -1;
+  ex.opts.forEach((o,i)=>{
+    const btn = document.createElement('button');
+    btn.className='opt-btn'; btn.id='lo'+i; btn.textContent=o;
+    btn.style.width='100%'; btn.style.marginBottom='6px';
+    btn.addEventListener('click', ()=>{
+      lSel = i;
+      document.querySelectorAll('#listen-opts .opt-btn').forEach((b,j)=>b.className='opt-btn'+(j===i?' on':''));
+      document.getElementById('l-chk').className='btn green';
+      document.getElementById('l-chk').onclick = ()=>confirmListenVal(ex, i);
+    });
+    document.getElementById('listen-opts').appendChild(btn);
+  });
+}
+
+let lConfirmed = false;
+function confirmListenVal(ex, sel){
+  if(lConfirmed) return; lConfirmed = true;
+  const ok = sel === ex.ans;
+  document.querySelectorAll('#listen-opts .opt-btn').forEach((b,i)=>{
+    if(i===ex.ans) b.className='opt-btn ok';
+    else if(i===sel&&!ok) b.className='opt-btn ng';
+  });
+  showFeedback('l-fb', ok, '', ex.exp);
+  const btn = document.getElementById('l-chk');
+  btn.className='btn '+(ok?'ok':'ng'); btn.textContent='Devam →';
+  btn.onclick=()=>{ lConfirmed=false; if(ok) addXP(8); listenIdx++; renderListenQ(); };
+}
+
+function confirmListen(ex){} // handled via closure above
+
+function playAudio(text){
+  const btn = document.getElementById('play-btn');
+  if(!btn) return;
+  btn.classList.add('playing');
+  if(waveTimer) clearInterval(waveTimer);
+  waveTimer = setInterval(()=>{
+    for(let i=0;i<8;i++){ const b=document.getElementById('wv'+i); if(b) b.style.height=(4+Math.random()*20)+'px'; }
+  }, 140);
+  speak(text, ()=>{
+    btn.classList.remove('playing');
+    clearInterval(waveTimer); waveTimer=null;
+    for(let i=0;i<8;i++){ const b=document.getElementById('wv'+i); if(b) b.style.height='5px'; }
+  });
+}
+
+function renderListenDone(){
+  addXP(10);
+  document.getElementById('listen-body').innerHTML = `
+    <div style="text-align:center;padding:26px 0;">
+      <div style="font-size:50px;margin-bottom:10px;">🎧</div>
+      <div style="font-family:Sora,sans-serif;font-size:19px;font-weight:700;margin-bottom:5px;">Dinleme Tamamlandı!</div>
+      <div style="font-size:12px;color:var(--mt);margin-bottom:16px;">Tüm egzersizleri bitirdin!</div>
+      <button class="btn green" onclick="listenIdx=0;lConfirmed=false;renderListenQ();">Tekrar Çalış</button>
+      <button class="btn sec" onclick="goTo('home')">Ana Sayfa</button>
+    </div>`;
+}
+
+// Dikte
+function renderDikte(){
+  if(dikteIdx >= DIKTE_EX.length){ renderDikteDone(); return; }
+  const ex = DIKTE_EX[dikteIdx];
+  const dots = makeDots(DIKTE_EX, dikteIdx);
+  const body = document.getElementById('listen-body');
+  body.innerHTML = `
+    <div class="pdots">${dots}</div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:7px;">Dikte · ${ex.lv}</div>
+      <div style="font-family:Sora,sans-serif;font-size:15px;font-weight:700;margin-bottom:9px;">Duyduğunuzu yazın</div>
+      <button class="spk" id="dk-spk">🔊 Sesi Çal</button>
+      <br>
+      <input class="inp" id="dk-in" style="margin-top:9px;" placeholder="Portekizce cümleyi yazın..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <div style="font-size:11px;color:var(--mt);margin-top:5px;">💡 ${ex.hint}</div>
+    </div>
+    <div class="fb" id="dk-fb"></div>
+    <button class="btn green" id="dk-chk">Kontrol Et</button>`;
+  document.getElementById('dk-spk').addEventListener('click', function(){ spkClick(this, ex.audio); });
+  document.getElementById('dk-chk').addEventListener('click', ()=>confirmDikte(ex.text));
+  setTimeout(()=>{ const i=document.getElementById('dk-in'); if(i) i.focus(); }, 100);
+}
+
+let dkConfirmed = false;
+function confirmDikte(correct){
+  if(dkConfirmed) return; dkConfirmed=true;
+  const val = (document.getElementById('dk-in').value||'').trim();
+  const norm = s=>s.toLowerCase().replace(/[.,!?]/g,'').trim();
+  const ok = norm(val)===norm(correct);
+  document.getElementById('dk-in').className='inp '+(ok?'ok':'ng');
+  document.getElementById('dk-in').disabled=true;
+  const fb=document.getElementById('dk-fb');
+  fb.className='fb '+(ok?'ok':'ng');
+  fb.innerHTML=`<b>${ok?'✅ Mükemmel!':'❌ Yanlış!'}</b><span>${ok?'Aynen doğru!':'<em>'+correct+'</em>'}</span>`;
+  if(ok) addXP(10);
+  const btn=document.getElementById('dk-chk');
+  btn.className='btn '+(ok?'ok':'ng'); btn.textContent='Devam →';
+  btn.onclick=()=>{ dkConfirmed=false; dikteIdx++; renderDikte(); };
+}
+
+function renderDikteDone(){
+  document.getElementById('listen-body').innerHTML=`
+    <div style="text-align:center;padding:26px 0;">
+      <div style="font-size:50px;margin-bottom:10px;">✍️</div>
+      <div style="font-family:Sora,sans-serif;font-size:19px;font-weight:700;margin-bottom:5px;">Dikte Tamamlandı!</div>
+      <div style="font-size:12px;color:var(--mt);margin-bottom:16px;">Tüm dikteleri bitirdin!</div>
+      <button class="btn green" onclick="dikteIdx=0;dkConfirmed=false;renderDikte();">Tekrar</button>
+      <button class="btn sec" onclick="goTo('home')">Ana Sayfa</button>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════
+//  WRITING
+// ═══════════════════════════════════════════════════
+function openWriting(){
+  writeIdx = 0;
+  document.getElementById('wt-ceviri').classList.add('on');
+  document.getElementById('wt-cumle').classList.remove('on');
+  document.getElementById('wt-doldur').classList.remove('on');
+  renderCeviri();
+  goTo('writing');
+}
+
+// Çeviri
+function renderCeviri(){
+  if(writeIdx >= CEVIRI_EX.length){ renderWriteDone(); return; }
+  const ex = CEVIRI_EX[writeIdx];
+  const dots = makeDots(CEVIRI_EX, writeIdx);
+  document.getElementById('write-body').innerHTML = `
+    <div class="pdots">${dots}</div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:4px;">Çeviri · ${ex.lv}</div>
+      <div style="font-family:Sora,sans-serif;font-size:16px;font-weight:700;margin-bottom:9px;">Türkçeyi Portekizceye çevirin</div>
+      <div class="src"><div class="src-l">Türkçe</div><div class="src-t">${ex.tr}</div></div>
+      <div style="font-size:11px;color:var(--mt);margin-bottom:8px;">💡 ${ex.hint}</div>
+      <textarea class="inp" id="wr-in" placeholder="Portekizce çevirinizi yazın..." rows="3"></textarea>
+    </div>
+    <div class="fb" id="wr-fb"></div>
+    <button class="btn green" id="wr-chk">Kontrol Et</button>`;
+  let done=false;
+  document.getElementById('wr-chk').addEventListener('click', ()=>{
+    if(done) return; done=true;
+    const val=(document.getElementById('wr-in').value||'').trim();
+    const norm=s=>s.toLowerCase().replace(/[.,!?]/g,'').trim();
+    const ok=norm(val)===norm(ex.pt);
+    document.getElementById('wr-in').className='inp '+(ok?'ok':'ng');
+    document.getElementById('wr-in').disabled=true;
+    const fb=document.getElementById('wr-fb');
+    fb.className='fb '+(ok?'ok':'ng');
+    fb.innerHTML=`<b>${ok?'✅ Doğru!':'❌ Yanlış!'}</b><span>${ok?'Harika çeviri!':'Doğrusu: <em>'+ex.pt+'</em>'}</span>`;
+    if(ok) addXP(12);
+    const btn=document.getElementById('wr-chk');
+    btn.className='btn '+(ok?'ok':'ng'); btn.textContent='Devam →';
+    btn.onclick=()=>{ writeIdx++; renderCeviri(); };
+  });
+  setTimeout(()=>{ const i=document.getElementById('wr-in'); if(i) i.focus(); },100);
+}
+
+// Cümle Kur
+function renderCumle(){
+  if(writeIdx >= CUMLE_EX.length){ renderWriteDone(); return; }
+  curCumle = CUMLE_EX[writeIdx];
+  placedW=[]; remainW=[...curCumle.words].sort(()=>Math.random()-.5);
+  buildCumleUI();
+}
+
+function buildCumleUI(){
+  const ex = curCumle;
+  const dots = makeDots(CUMLE_EX, writeIdx);
+  document.getElementById('write-body').innerHTML = `
+    <div class="pdots">${dots}</div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:4px;">Cümle Kur · ${ex.lv}</div>
+      <div style="font-family:Sora,sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;">Doğru sıraya koyun</div>
+      <div class="src"><div class="src-l">Türkçe</div><div class="src-t">${ex.tr}</div></div>
+      <div style="font-size:11px;color:var(--mt);margin-bottom:6px;">Kelimelere tıklayarak cümle oluşturun:</div>
+      <div class="wt" id="cumle-target"></div>
+      <div class="chips" id="cumle-bank"></div>
+    </div>
+    <div class="fb" id="cumle-fb"></div>
+    <button class="btn dis" id="cumle-chk">Kontrol Et</button>`;
+  refreshCumle();
+  document.getElementById('cumle-chk').addEventListener('click', confirmCumle);
+}
+
+function refreshCumle(){
+  const target = document.getElementById('cumle-target');
+  const bank = document.getElementById('cumle-bank');
+  if(!target||!bank) return;
+  // target
+  target.innerHTML = '';
+  if(placedW.length===0){
+    target.innerHTML='<span style="opacity:.4;font-size:12px;">Buraya ekleyin...</span>';
+  } else {
+    placedW.forEach((w,i)=>{
+      const chip=document.createElement('span');
+      chip.className='chip placed'; chip.textContent=w;
+      chip.addEventListener('click',()=>{ remainW.push(placedW.splice(i,1)[0]); refreshCumle(); });
+      target.appendChild(chip);
+    });
+  }
+  // bank
+  bank.innerHTML='';
+  remainW.forEach((w,i)=>{
+    const chip=document.createElement('button');
+    chip.className='chip'; chip.textContent=w;
+    chip.addEventListener('click',()=>{ placedW.push(remainW.splice(i,1)[0]); refreshCumle(); });
+    bank.appendChild(chip);
+  });
+  // check btn
+  const chk=document.getElementById('cumle-chk');
+  if(chk) chk.className = remainW.length===0?'btn green':'btn dis';
+}
+
+let cumleConfirmed=false;
+function confirmCumle(){
+  if(cumleConfirmed||remainW.length>0) return; cumleConfirmed=true;
+  const formed=placedW.join(' ');
+  const ok=formed.toLowerCase()===curCumle.correct.toLowerCase();
+  const fb=document.getElementById('cumle-fb');
+  fb.className='fb '+(ok?'ok':'ng');
+  fb.innerHTML=`<b>${ok?'✅ Mükemmel!':'❌ Yanlış!'}</b><span>${ok?'Cümleyi doğru kurdun!':'Doğrusu: <em>'+curCumle.correct+'</em>'}</span>`;
+  if(ok) addXP(12);
+  const chk=document.getElementById('cumle-chk');
+  chk.className='btn '+(ok?'ok':'ng'); chk.textContent='Devam →';
+  chk.onclick=()=>{ cumleConfirmed=false; writeIdx++; renderCumle(); };
+}
+
+// Boşluk Doldur
+function renderDoldur(){
+  if(writeIdx >= DOLDUR_EX.length){ renderWriteDone(); return; }
+  const ex = DOLDUR_EX[writeIdx];
+  const dots = makeDots(DOLDUR_EX, writeIdx);
+  const sentHtml=ex.sent.replace('___','<span style="border-bottom:2px solid var(--g);padding:0 9px;color:var(--g);font-weight:700;">___</span>');
+  document.getElementById('write-body').innerHTML=`
+    <div class="pdots">${dots}</div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:4px;">Boşluk Doldur · ${ex.lv}</div>
+      <div style="font-family:Sora,sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;">${sentHtml}</div>
+      <div style="font-size:11px;color:var(--mt);margin-bottom:9px;">💡 ${ex.hint}</div>
+      <div class="opts" id="doldur-opts"></div>
+    </div>
+    <div class="fb" id="doldur-fb"></div>
+    <button class="btn dis" id="doldur-chk">Kontrol Et</button>`;
+  let dSel=-1, dDone=false;
+  ex.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='opt-btn'; btn.id='do'+i;
+    btn.innerHTML=`<span class="opt-ltr">${L[i]}</span>${o}`;
+    btn.addEventListener('click',()=>{
+      dSel=i;
+      document.querySelectorAll('#doldur-opts .opt-btn').forEach((b,j)=>b.className='opt-btn'+(j===i?' on':''));
+      document.getElementById('doldur-chk').className='btn blue';
+      document.getElementById('doldur-chk').onclick=()=>confirmDoldur(ex,dSel,dDone,v=>dDone=v);
+    });
+    document.getElementById('doldur-opts').appendChild(btn);
+  });
+  document.getElementById('doldur-chk').addEventListener('click',()=>{
+    if(dSel<0) return;
+    confirmDoldur(ex,dSel,dDone,v=>dDone=v);
+  });
+}
+
+function confirmDoldur(ex,sel,done,setDone){
+  if(done) return; setDone(true);
+  const ok=ex.opts[sel]===ex.blank;
+  document.querySelectorAll('#doldur-opts .opt-btn').forEach((b,i)=>{
+    if(ex.opts[i]===ex.blank) b.className='opt-btn ok';
+    else if(i===sel&&!ok) b.className='opt-btn ng';
+  });
+  const fb=document.getElementById('doldur-fb');
+  fb.className='fb '+(ok?'ok':'ng');
+  fb.innerHTML=`<b>${ok?'✅ Doğru!':'❌ Yanlış!'}</b><span>${ok?ex.hint:'Doğrusu: <em>'+ex.blank+'</em>'}</span>`;
+  if(ok) addXP(10);
+  const chk=document.getElementById('doldur-chk');
+  chk.className='btn '+(ok?'ok':'ng'); chk.textContent='Devam →';
+  chk.onclick=()=>{ writeIdx++; renderDoldur(); };
+}
+
+function renderWriteDone(){
+  addXP(15);
+  document.getElementById('write-body').innerHTML=`
+    <div style="text-align:center;padding:26px 0;">
+      <div style="font-size:50px;margin-bottom:10px;">✍️</div>
+      <div style="font-family:Sora,sans-serif;font-size:19px;font-weight:700;margin-bottom:5px;">Yazma Tamamlandı!</div>
+      <div style="font-size:12px;color:var(--mt);margin-bottom:16px;">Harika iş çıkardın!</div>
+      <button class="btn green" onclick="writeIdx=0;renderCeviri();">Tekrar Çalış</button>
+      <button class="btn sec" onclick="goTo('home')">Ana Sayfa</button>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════
+//  QUIZ
+// ═══════════════════════════════════════════════════
+function startQuiz(){
+  qQs=[...QUIZ_QS].sort(()=>Math.random()-.5).slice(0,10);
+  qIdx=0; qCorrect=0; qLives=3;
+  goTo('quiz');
+  renderQQ();
+}
+
+function renderQQ(){
+  if(qIdx>=qQs.length){ showResult(); return; }
+  const q=qQs[qIdx];
+  qAns=q.type==='mc'?q.ans:-1; qExp=q.exp;
+  document.getElementById('q-bar').style.width=((qIdx/qQs.length)*100+10)+'%';
+  document.getElementById('q-cnt').textContent=(qIdx+1)+'/'+qQs.length;
+  document.getElementById('q-hearts').textContent='❤️'.repeat(qLives)+'🖤'.repeat(3-qLives);
+  if(q.type==='mc') renderQMC(q);
+  else renderQFill(q);
+}
+
+function renderQMC(q){
+  const body=document.getElementById('q-body');
+  body.innerHTML=`
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:5px;">Doğru Cevabı Seç</div>
+    <div style="font-family:Sora,sans-serif;font-size:17px;font-weight:700;margin-bottom:14px;line-height:1.35;">${q.q}</div>
+    <div class="opts" id="q-opts"></div>
+    <div class="fb" id="q-fb"></div>
+    <button class="btn dis" id="q-chk">Kontrol Et</button>`;
+  let qSel=-1, qDone=false;
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');
+    btn.className='opt-btn'; btn.id='qo'+i;
+    btn.innerHTML=`<span class="opt-ltr">${L[i]}</span>${o}`;
+    btn.addEventListener('click',()=>{
+      qSel=i;
+      document.querySelectorAll('#q-opts .opt-btn').forEach((b,j)=>b.className='opt-btn'+(j===i?' on':''));
+      document.getElementById('q-chk').className='btn blue';
+      document.getElementById('q-chk').onclick=()=>confirmQMC(q.ans,q.exp,qSel,qDone,v=>qDone=v);
+    });
+    document.getElementById('q-opts').appendChild(btn);
+  });
+}
+
+function confirmQMC(ans,exp,sel,done,setDone){
+  if(done) return; setDone(true);
+  const ok=sel===ans;
+  document.querySelectorAll('#q-opts .opt-btn').forEach((b,i)=>{
+    if(i===ans) b.className='opt-btn ok';
+    else if(i===sel&&!ok) b.className='opt-btn ng';
+  });
+  showFeedback('q-fb',ok,'',exp);
+  const btn=document.getElementById('q-chk');
+  btn.className='btn '+(ok?'ok':'ng'); btn.textContent='Devam →';
+  btn.onclick=()=>{
+    if(ok) qCorrect++;
+    else{ qLives--; if(qLives<=0){showResult();return;} }
+    qIdx++; renderQQ();
+  };
+}
+
+function renderQFill(q){
+  document.getElementById('q-body').innerHTML=`
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:5px;">Boşluğu Doldur</div>
+    <div style="font-family:Sora,sans-serif;font-size:17px;font-weight:700;margin-bottom:14px;">${q.q}</div>
+    <input type="text" class="inp" id="q-fi" placeholder="Cevabınızı yazın..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <div class="fb" id="q-fb"></div>
+    <button class="btn green" id="q-chk">Kontrol Et</button>`;
+  let done=false;
+  document.getElementById('q-chk').addEventListener('click',()=>{
+    if(done) return; done=true;
+    const val=(document.getElementById('q-fi').value||'').trim().toLowerCase();
+    const ok=val===q.ans.toLowerCase();
+    document.getElementById('q-fi').className='inp '+(ok?'ok':'ng');
+    document.getElementById('q-fi').disabled=true;
+    showFeedback('q-fb',ok,'',ok?q.exp:'Doğrusu: '+q.ans+' — '+q.exp);
+    const btn=document.getElementById('q-chk');
+    btn.className='btn '+(ok?'ok':'ng'); btn.textContent='Devam →';
+    btn.onclick=()=>{
+      if(ok) qCorrect++;
+      else{ qLives--; if(qLives<=0){showResult();return;} }
+      qIdx++; renderQQ();
+    };
+  });
+  setTimeout(()=>{ const f=document.getElementById('q-fi'); if(f) f.focus(); },100);
+}
+
+function showResult(){
+  const tot=qQs.length, acc=Math.round(qCorrect/tot*100), xp=qCorrect*5;
+  addXP(xp);
+  document.getElementById('r-cor').textContent=qCorrect+'/'+tot;
+  document.getElementById('r-xp').textContent='+'+xp+' XP';
+  document.getElementById('r-acc').textContent=acc+'%';
+  document.getElementById('r-str').textContent='🔥'+(streak+1);
+  const em=acc>=90?'🏆':acc>=70?'🎉':acc>=50?'💪':'📚';
+  const ti=acc>=90?'Muhteşem!':acc>=70?'Tebrikler!':acc>=50?'İyi Deneme!':'Devam Et!';
+  document.getElementById('r-em').textContent=em;
+  document.getElementById('r-ti').textContent=ti;
+  document.getElementById('r-su').textContent=`${tot} sorudan ${qCorrect} doğru · %${acc} başarı`;
+  goTo('result');
+}
+
+// ═══════════════════════════════════════════════════
+//  BIND ALL EVENTS ON LOAD (no inline onclick anywhere)
+// ═══════════════════════════════════════════════════
+function bindAll(){
+  // Home buttons
+  document.getElementById('pt-banner').addEventListener('click', ()=>startPlacement());
+  document.getElementById('btn-listen').addEventListener('click', ()=>openListening());
+  document.getElementById('btn-write').addEventListener('click', ()=>openWriting());
+  document.getElementById('btn-pt').addEventListener('click', ()=>startPlacement());
+  document.getElementById('btn-quiz').addEventListener('click', ()=>startQuiz());
+  // Level cards
+  ['A1','A2','B1','B2'].forEach(lv=>document.getElementById('lv-'+lv).addEventListener('click',()=>showPath(lv)));
+  // Nav
+  document.getElementById('nav-home').addEventListener('click', ()=>goTo('home'));
+  document.getElementById('nav-listen').addEventListener('click', ()=>openListening());
+  document.getElementById('nav-write').addEventListener('click', ()=>openWriting());
+  document.getElementById('nav-pt').addEventListener('click', ()=>startPlacement());
+  // Placement
+  document.getElementById('pt-start-btn').addEventListener('click', ()=>{ ptQs=[...PT_QS].sort(()=>Math.random()-.5).slice(0,12); ptIdx=0; ptScores={A1:0,A2:0,B1:0,B2:0}; ptConfirmed=false; ptSel=-1; renderPTQ(); });
+  document.getElementById('pt-home-btn').addEventListener('click', ()=>goTo('home'));
+  // Back buttons
+  document.getElementById('listen-back').addEventListener('click', ()=>goTo('home'));
+  document.getElementById('write-back').addEventListener('click', ()=>goTo('home'));
+  document.getElementById('lesson-back').addEventListener('click', ()=>goTo('path'));
+  // Listen tabs
+  document.getElementById('lt-tanima').addEventListener('click', ()=>{
+    document.getElementById('lt-tanima').classList.add('on');
+    document.getElementById('lt-dikte').classList.remove('on');
+    listenIdx=0; lConfirmed=false; renderListenQ();
+  });
+  document.getElementById('lt-dikte').addEventListener('click', ()=>{
+    document.getElementById('lt-dikte').classList.add('on');
+    document.getElementById('lt-tanima').classList.remove('on');
+    dikteIdx=0; dkConfirmed=false; renderDikte();
+  });
+  // Write tabs
+  document.getElementById('wt-ceviri').addEventListener('click', ()=>{
+    setWriteTab('ceviri'); writeIdx=0; renderCeviri();
+  });
+  document.getElementById('wt-cumle').addEventListener('click', ()=>{
+    setWriteTab('cumle'); writeIdx=0; cumleConfirmed=false; renderCumle();
+  });
+  document.getElementById('wt-doldur').addEventListener('click', ()=>{
+    setWriteTab('doldur'); writeIdx=0; renderDoldur();
+  });
+  // Result
+  document.getElementById('r-home-btn').addEventListener('click', ()=>goTo('home'));
+  document.getElementById('r-again-btn').addEventListener('click', ()=>startQuiz());
+}
+
+function setWriteTab(t){
+  ['ceviri','cumle','doldur'].forEach(id=>document.getElementById('wt-'+id).className='tab'+(id===t?' on':''));
+}
+
+// ═══════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════
+if(window.speechSynthesis) window.speechSynthesis.getVoices();
+updateXP();
+bindAll();
+</script>
+
+<script>
+// ── PWA Service Worker ──────────────────────────
+if('serviceWorker' in navigator){
+  // Inline service worker as blob URL (no external file needed)
+  const swCode = `
+    const CACHE = 'falapt-v1';
+    self.addEventListener('install', e=>{
+      e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['/'])));
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', e=>{
+      e.waitUntil(clients.claim());
+    });
+    self.addEventListener('fetch', e=>{
+      e.respondWith(
+        caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('/')))
+      );
+    });
+  `;
+  const blob = new Blob([swCode], {type:'application/javascript'});
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl, {scope:'/'})
+    .then(()=>console.log('SW registered'))
+    .catch(()=>{}); // silently fail if blob SW not supported
+}
+
+// ── iOS Install Banner ───────────────────────────
+window.addEventListener('load', ()=>{
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.navigator.standalone;
+  const dismissed = localStorage.getItem('pwa-banner-dismissed');
+  
+  if(isIOS && !isStandalone && !dismissed){
+    setTimeout(()=>{
+      const banner = document.createElement('div');
+      banner.id = 'ios-banner';
+      banner.style.cssText = `
+        position:fixed;bottom:0;left:0;right:0;
+        background:#1a8a5a;color:white;
+        padding:14px 16px 24px;
+        font-family:Nunito,sans-serif;font-size:13px;
+        display:flex;align-items:center;gap:12px;
+        z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,.25);
+        animation:slideUp .3s ease;
+      `;
+      banner.innerHTML = \`
+        <img src="data:image/png;base64,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" style="width:44px;height:44px;border-radius:10px;flex-shrink:0;">
+        <div style="flex:1;line-height:1.4;">
+          <strong style="font-size:14px;">FalaPT'yi Ana Ekrana Ekle</strong><br>
+          <span style="opacity:.85;">Safari → <span style="font-size:15px;">⎙</span> → "Ana Ekrana Ekle"</span>
+        </div>
+        <button onclick="document.getElementById('ios-banner').remove();localStorage.setItem('pwa-banner-dismissed','1');"
+          style="background:rgba(255,255,255,.2);border:none;color:white;font-size:18px;width:28px;height:28px;border-radius:50%;cursor:pointer;flex-shrink:0;">✕</button>
+      \`;
+      document.body.appendChild(banner);
+    }, 2000);
+  }
+
+  // Android / Chrome install prompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', e=>{
+    e.preventDefault();
+    deferredPrompt = e;
+    const dismissed = localStorage.getItem('pwa-banner-dismissed');
+    if(dismissed) return;
+    const banner = document.createElement('div');
+    banner.id = 'android-banner';
+    banner.style.cssText = \`
+      position:fixed;bottom:0;left:0;right:0;
+      background:#1a8a5a;color:white;
+      padding:14px 16px 24px;
+      font-family:Nunito,sans-serif;font-size:13px;
+      display:flex;align-items:center;gap:12px;
+      z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,.25);
+    \`;
+    banner.innerHTML = \`
+      <img src="data:image/png;base64,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" style="width:44px;height:44px;border-radius:10px;flex-shrink:0;">
+      <div style="flex:1;line-height:1.4;">
+        <strong style="font-size:14px;">FalaPT'yi Yükle</strong><br>
+        <span style="opacity:.85;">Ana ekrana ekle, uygulama gibi kullan</span>
+      </div>
+      <button id="install-btn" style="background:white;color:#1a8a5a;border:none;font-family:Nunito,sans-serif;font-weight:800;font-size:12px;padding:8px 14px;border-radius:20px;cursor:pointer;flex-shrink:0;">YÜKLE</button>
+      <button onclick="document.getElementById('android-banner').remove();localStorage.setItem('pwa-banner-dismissed','1');"
+        style="background:rgba(255,255,255,.2);border:none;color:white;font-size:18px;width:28px;height:28px;border-radius:50%;cursor:pointer;flex-shrink:0;">✕</button>
+    \`;
+    document.body.appendChild(banner);
+    document.getElementById('install-btn').addEventListener('click', ()=>{
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(()=>{
+        document.getElementById('android-banner').remove();
+        localStorage.setItem('pwa-banner-dismissed','1');
+      });
+    });
+  });
+});
+</script>
+<style>
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:none}}
+</style>
+
+</body>
+</html>
